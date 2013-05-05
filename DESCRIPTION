@@ -4,6 +4,6 @@ Title: Calculates the optical response of multilayer thin films
 Version: 0.1
 Date: 2013-04-04
 Author: Tom Constant
-Maintainer: Tom Constant <t.j.constant@gmail.com>
+Maintainer: Tom Constant <t.j.constant at gmail.com>
 Description: Calculates the optical response of multilayer thin films using a transfer matrix method.
 License: GPL
