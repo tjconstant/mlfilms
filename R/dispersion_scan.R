@@ -4,10 +4,12 @@ dispersion_scan<-function(angle_range=seq(0,pi/2,,100),wavelength_range=seq(350e
   mtx.exp<-Biodem::mtx.exp
   
   #initalize reflection/transmission varible
-  Reflection<-c()
+  #Reflection<-c()
+  Reflection<-numeric(length(angle_range)*length(wavelength_range))
   #Transmission<-c()
-  cum_angle<-c()
-  cum_wavelength<-c()
+  cum_angle<-numeric(length(angle_range)*length(wavelength_range))
+  cum_wavelength<-numeric(length(angle_range)*length(wavelength_range))
+  counting_variable<-0
   
   #prevent numerical instablity by adding an extra entry and exit medium
   layers$index<-c(incident_medium.index,layers$index,exit_medium.index)
@@ -17,8 +19,10 @@ dispersion_scan<-function(angle_range=seq(0,pi/2,,100),wavelength_range=seq(350e
   pb.counter<-0
   
   for(wavelength in wavelength_range){
-  
+    
     for(angle in angle_range){
+      
+      counting_variable<-counting_variable+1
       
       M<-matrix(c(1,0,0,1),nrow=2,ncol=2,byrow=TRUE)
       
@@ -40,16 +44,16 @@ dispersion_scan<-function(angle_range=seq(0,pi/2,,100),wavelength_range=seq(350e
       M<-mtx.exp(M,layers$repetitions)
       
       r<-rFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
-      Reflection<-c(Reflection,r*Conj(r))
+      Reflection[counting_variable]<-r*Conj(r)
       
       #t<-tFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
       #Transmission<-c(Transmission,t*Conj(t))
       
-      cum_angle<-c(cum_angle,angle)
-      cum_wavelength<-c(cum_wavelength,wavelength)
+      cum_angle[counting_variable]<-angle
+      cum_wavelength[counting_variable]<-wavelength
       
-      pb.counter<-pb.counter+1
-      setTxtProgressBar(pb=pb,value=pb.counter)
+      #pb.counter<-pb.counter+1
+      setTxtProgressBar(pb=pb,value=counting_variable)
       
     }
   }

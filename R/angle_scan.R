@@ -6,15 +6,19 @@ angle_scan<-function(angle_range=seq(0,pi/2,,500),wavelength=633e-9, polarisatio
   #if(is.vector(layers)) layers<-list(index=layers[1],thickness=layers[2],repetitions=layers[3] )
   
   #initalize reflection/transmisson varible
-  Reflection<-c()
+  Reflection<-numeric(length(angle_range))
   #Transmission<-c()
   
   #prevent numerical instablity by adding an extra entry and exit medium
   layers$index<-c(incident_medium.index,layers$index,exit_medium.index)
   layers$thickness<-c(0,layers$thickness,0)
   
+  counting_variable<-0
+  
   
   for(angle in angle_range){
+    
+    counting_variable<-counting_variable+1
     
     M<-matrix(c(1,0,0,1),nrow=2,ncol=2,byrow=TRUE)
     
@@ -31,7 +35,7 @@ angle_scan<-function(angle_range=seq(0,pi/2,,500),wavelength=633e-9, polarisatio
     M<-mtx.exp(M,layers$repetitions)
     
     r<-rFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
-    Reflection<-c(Reflection,r*Conj(r))
+    Reflection[counting_variable]<-r*Conj(r)
     
     #t<-tFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
     #Transmission<-c(Transmission,t*Conj(t))
