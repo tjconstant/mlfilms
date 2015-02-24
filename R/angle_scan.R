@@ -35,16 +35,16 @@ angle_scan<-function(angle_range=seq(0,pi/2,,500),wavelength=633e-9, polarisatio
     M<-mtx.exp(M,layers$repetitions)
     
     r<-rFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
-    Reflection[counting_variable]<-r*Conj(r)
-    
+    Reflection[counting_variable]<-ReflectionCalc(r)
+  
     t<-tFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
-    if(polarisation=="s"){
-      Transmission[counting_variable]<- t*Conj(t)*(exit_medium.index*cos(L$theta2)/(incident_medium.index*cos(angle)))
-    } else if(polarisation=="p"){
-      Transmission[counting_variable]<- t*Conj(t)*(exit_medium.index*Conj(cos(L$theta2))/(incident_medium.index*Conj(cos(angle))))
-    } 
-  }
-  return(data.frame(angle=angle_range,Reflection=Re(Reflection),Transmission=Re(Transmission)))
+    Transmission[counting_variable]<-TransmissionCalc(t,angle,L$theta2,incident_medium.index,exit_medium.index,polarisation)
+
+}
+  return(data.frame(angle=angle_range,
+                    Reflection=Re(Reflection),
+                    Transmission=Re(Transmission),
+                    Absorption=1-Re(Transmission)-Re(Reflection)))
 }
 
 

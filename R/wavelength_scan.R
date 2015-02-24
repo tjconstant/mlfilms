@@ -38,19 +38,18 @@ wavelength_scan<-function(wavelength_range=seq(350e-9,850e-9,,500),angle=0, pola
     M<-mtx.exp(M,layers$repetitions)
     
     r<-rFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
-    Reflection[counting_variable]<-r*Conj(r)
+    Reflection[counting_variable]<-ReflectionCalc(r)
     
     t<-tFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
+    Transmission[counting_variable]<-TransmissionCalc(t,angle,L$theta2,incident_medium.index,exit_medium.index,polarisation)
     
-    if(polarisation=="s"){
-      Transmission[counting_variable]<- t*Conj(t)*(exit_medium.index*cos(L$theta2)/(incident_medium.index*cos(angle)))
-    } else if(polarisation=="p"){
-      Transmission[counting_variable]<- t*Conj(t)*(exit_medium.index*Conj(cos(L$theta2))/(incident_medium.index*Conj(cos(angle))))
-    }
   
   }
   
-  return(data.frame(wavelength=wavelength_range,Reflection=Re(Reflection),Transmission=Re(Transmission)))
+  return(data.frame(wavelength=wavelength_range,
+                    Reflection=Re(Reflection),
+                    Transmission=Re(Transmission),
+                    Absorption=1-Re(Transmission)-Re(Reflection)))
 }
 
 

@@ -62,6 +62,10 @@ dispersion_scan<-function(angle_range=seq(0,pi/2,,100),wavelength_range=seq(350e
       
     }
   }
-  return(data.frame(angle=cum_angle,wavelength=cum_wavelength,Reflection=Re(Reflection),Transmission=Re(Transmission)))
+  return(data.frame(angle=cum_angle,
+                    wavelength=cum_wavelength,
+                    Reflection=Re(Reflection),
+                    Transmission=Re(Transmission),
+                    Absorption=1-Re(Transmission)-Re(Reflection)))
 }
 

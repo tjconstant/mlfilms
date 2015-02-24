@@ -6,9 +6,6 @@ rFromTMatrix<- function(M,gamma0,gamma2){
 }
 
 tFromTMatrix<- function(M,gamma0,gamma2){
-  #remember t*conj(t) does NOT in general equal T.
-  #correct phase conditions accounted for in scan files, and 
-  #found originally at https://github.com/sbyrnes321/tmm
   
   t<-(2*gamma0)/((gamma0*M[1,1])+(gamma0*gamma2*M[1,2])+(M[2,1])+(gamma2*M[2,2]))
   return(t)
