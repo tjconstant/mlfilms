@@ -5,7 +5,7 @@ wavelength_scan<-function(wavelength_range=seq(350e-9,850e-9,,500),angle=0, pola
   
   #initalize reflection/transmission varible
   Reflection<-numeric(length(wavelength_range))
-  #Transmission<-c()
+  Transmission<-numeric(length(wavelength_range))
   
   #prevent numerical instablity by adding an extra entry and exit medium
   layers$index<-c(incident_medium.index,layers$index,exit_medium.index)
@@ -40,11 +40,17 @@ wavelength_scan<-function(wavelength_range=seq(350e-9,850e-9,,500),angle=0, pola
     r<-rFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
     Reflection[counting_variable]<-r*Conj(r)
     
-    #t<-tFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
-    #Transmission<-c(Transmission,t*Conj(t))
+    t<-tFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
     
+    if(polarisation=="s"){
+      Transmission[counting_variable]<- t*Conj(t)*(exit_medium.index*cos(L$theta2)/(incident_medium.index*cos(angle)))
+    } else if(polarisation=="p"){
+      Transmission[counting_variable]<- t*Conj(t)*(exit_medium.index*Conj(cos(L$theta2))/(incident_medium.index*Conj(cos(angle))))
+    }
+  
   }
-  return(data.frame(wavelength=wavelength_range,Reflection=Re(Reflection)))#,Transmission=Re(Transmission)))
+  
+  return(data.frame(wavelength=wavelength_range,Reflection=Re(Reflection),Transmission=Re(Transmission)))
 }
 
 

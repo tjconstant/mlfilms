@@ -6,7 +6,8 @@ dispersion_scan<-function(angle_range=seq(0,pi/2,,100),wavelength_range=seq(350e
   #initalize reflection/transmission varible
   #Reflection<-c()
   Reflection<-numeric(length(angle_range)*length(wavelength_range))
-  #Transmission<-c()
+  Transmission<-numeric(length(angle_range)*length(wavelength_range))
+  
   cum_angle<-numeric(length(angle_range)*length(wavelength_range))
   cum_wavelength<-numeric(length(angle_range)*length(wavelength_range))
   counting_variable<-0
@@ -46,8 +47,12 @@ dispersion_scan<-function(angle_range=seq(0,pi/2,,100),wavelength_range=seq(350e
       r<-rFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
       Reflection[counting_variable]<-r*Conj(r)
       
-      #t<-tFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
-      #Transmission<-c(Transmission,t*Conj(t))
+      t<-tFromTMatrix(M=M,gamma0=gamma0,gamma2=gamma2)
+      if(polarisation=="s"){
+        Transmission[counting_variable]<- t*Conj(t)*(exit_medium.index*cos(L$theta2)/(incident_medium.index*cos(angle)))
+      } else if(polarisation=="p"){
+        Transmission[counting_variable]<- t*Conj(t)*(exit_medium.index*Conj(cos(L$theta2))/(incident_medium.index*Conj(cos(angle))))
+      }
       
       cum_angle[counting_variable]<-angle
       cum_wavelength[counting_variable]<-wavelength
@@ -57,6 +62,6 @@ dispersion_scan<-function(angle_range=seq(0,pi/2,,100),wavelength_range=seq(350e
       
     }
   }
-  return(data.frame(angle=cum_angle,wavelength=cum_wavelength,Reflection=Re(Reflection)))#,Transmission=Re(Transmission)))
+  return(data.frame(angle=cum_angle,wavelength=cum_wavelength,Reflection=Re(Reflection),Transmission=Re(Transmission)))
 }
 
