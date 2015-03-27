@@ -13,7 +13,7 @@ From within an R session, use the devtools package like so:
 install.packages('devtools')
 library(devtools)
 
-install_github('tjconstant/photonMonkey')
+install_github('tjconstant/mlfilms')
 ```
 
 The Stack
