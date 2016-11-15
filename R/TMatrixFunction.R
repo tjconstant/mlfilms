@@ -11,11 +11,6 @@ c<-3e8
 theta1<-asin((n0/n1)*sin(theta0))
 theta2<-asin((n1/n2)*sin(theta1))
 
-#theta2<-Re(theta2)-abs(Im(theta2))*1i 
-#this is a bodge to make it work for metals. need permanant solution here.
-#for dielectrics this line makes no difference, and could even be removed.
-#not needed after using correct angles. fixed, but remains here as a testiment to stupidity
-
 #pedrotti notation
 #gammas for ease of polarisation switches
 
