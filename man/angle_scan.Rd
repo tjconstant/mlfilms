@@ -50,6 +50,6 @@ layers<-list(index=c(0.13+4i),thickness=c(45e-9),repetitions= 1)
 
 R_plasmon<-angle_scan(incident_medium.index=1.5+0i,exit_medium.index=1+0i,layers=layers)
 
-plot(R_plasmon,type='l',lwd=2, ylim=c(0,1))
+plot(R_plasmon$angle,R_plasmon$Reflection,type='l',lwd=2, ylim=c(0,1))
 title("Surface Plasmon in air")
 }

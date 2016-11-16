@@ -68,7 +68,7 @@ layers<-list(index=c(2.35+0i,1.38+0i),thickness=c(550e-9/(4*2.35),550e-9/(4*1.38
 
 R_highlowStack6<-wavelength_scan(incident_medium.index=1+0i,exit_medium.index=1.52+0i,layers=layers)
 
-plot(R_highlowStack6,type='l',lwd=2, ylim=c(0,1))
+plot(R_highlowStack6$wavelength,R_highlowStack6$Reflection,type='l',lwd=2, ylim=c(0,1))
 title("H/L index stack (N=6 & 2): Pedrotti Figure 22-9")
 
 }
