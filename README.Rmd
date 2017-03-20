@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [![packageversion](https://img.shields.io/badge/package%20version-`r packageVersion("mlfilms")`-lightgrey.svg)](commits/master)
 [![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-lightgrey.svg)](/commits/master)
-[![Build Status](https://travis-ci.org/tjconstant/disp.plot.svg?branch=master)](https://travis-ci.org/tjconstant/mlfilms.svg)
+[![Build Status](https://travis-ci.org/tjconstant/disp.plot.svg?branch=master)](https://travis-ci.org/tjconstant/mlfilms)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/disp.plot)](https://cran.r-project.org/package=mlfilms)
 
 mlfilms
