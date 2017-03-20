@@ -8,6 +8,8 @@ angle_scan<-function(angle_range=seq(0,pi/2,,500),wavelength=633e-9, polarisatio
   #initalize reflection/transmisson varible
   Reflection<-numeric(length(angle_range))
   Transmission<-numeric(length(angle_range))
+  r <- numeric(length(angle_range))
+  t <- numeric(length(angle_range))
   
   #prevent numerical instablity by adding an extra entry and exit medium
   layers$index<-c(incident_medium.index,layers$index,exit_medium.index)
@@ -44,7 +46,9 @@ angle_scan<-function(angle_range=seq(0,pi/2,,500),wavelength=633e-9, polarisatio
   return(data.frame(angle=angle_range,
                     Reflection=Re(Reflection),
                     Transmission=Re(Transmission),
-                    Absorption=1-Re(Transmission)-Re(Reflection)))
+                    Absorption=1-Re(Transmission)-Re(Reflection),
+                    r = r,
+                    t = t))
 }
 
 

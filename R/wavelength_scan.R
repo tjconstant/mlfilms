@@ -6,6 +6,8 @@ wavelength_scan<-function(wavelength_range=seq(350e-9,850e-9,,500),angle=0, pola
   #initalize reflection/transmission varible
   Reflection<-numeric(length(wavelength_range))
   Transmission<-numeric(length(wavelength_range))
+  r <- numeric(length(wavelength_range))
+  t <- numeric(length(wavelength_range))
   
   #prevent numerical instablity by adding an extra entry and exit medium
   layers$index<-c(incident_medium.index,layers$index,exit_medium.index)
@@ -49,7 +51,9 @@ wavelength_scan<-function(wavelength_range=seq(350e-9,850e-9,,500),angle=0, pola
   return(data.frame(wavelength=wavelength_range,
                     Reflection=Re(Reflection),
                     Transmission=Re(Transmission),
-                    Absorption=1-Re(Transmission)-Re(Reflection)))
+                    Absorption=1-Re(Transmission)-Re(Reflection),
+                    r = r,
+                    t = t))
 }
 
 
