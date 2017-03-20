@@ -1,6 +1,6 @@
 .onAttach<-function(libname=find.package("mlfilms"),pkgname="mlfilms"){  
   
-  this_release<-packageVersion("mlfilms")
+  this_release<-"0.2.3"#packageVersion("mlfilms")
   
   #GET<-httr::GET
   #content<-httr::content
@@ -15,7 +15,7 @@
     #packageStartupMessage(paste("WARNING: mlfilms v",this_release," is not the current stable release (mlfilms v",latest_release_number,")",sep=""))
   #}else{
   name <- "Sexy Sam"
-    packageStartupMessage(paste("mlfilms v", this_release," '",name,"'",sep=""))
+  packageStartupMessage(paste("mlfilms v", this_release," '",name,"'",sep=""))
   #}
   
 }
