@@ -24,7 +24,7 @@ To Install
 ----------
 
 From within an R session, use the devtools package like so:
-```
+```r
 install.packages('devtools')
 library(devtools)
 
@@ -41,5 +41,35 @@ For Example:
 mystack <- list(index=c(1,1.5,1,1.5+0.5i),thickness=c(100e-9,50e-9,20e-9,100e-9), repetitions=1)
 
 ```
+
+Example
+-------
+As a quick example, here is how you'd calculate and plot the reflection from a thin silver film through a prism. This is a standard experiment in our lab which results in a reflectivity minima associated with a surface plasmon excitation.
+
+We simply construct a stack with an appropriate refractive index and thickness (45 nm), and calculate the reflection (the default covers an angle between 0 and 90 degrees), with incident medium set to glass.
+
+```r
+layers <- list(index = c(0.13+4i), 
+               thickness = c(45e-9),
+               repetitions = 1)
+
+R_plasmon <- angle_scan(incident_medium.index = 1.5+0i,
+                        exit_medium.index = 1+0i,
+                        layers = layers)
+```
+
+Plotting the result using `ggplot` shows a critical edge related to the onset of total internal reflection in the prism, and the reflectivity minima resulting from a surface plasmon excitation on the silver/air interface.
+
+```r
+library(ggplot2)
+
+qplot(R_plasmon$angle*180/pi,R_plasmon$Reflection,geom="line")+
+  theme_bw()+
+  scale_x_continuous(expand=c(0,0))+
+  xlab(expression(polar~angle~theta~(degree)))+
+  ylab("reflection")
+```
+
+![](https://i0.wp.com/i.imgur.com/V4zXdjE.png)
 
 
