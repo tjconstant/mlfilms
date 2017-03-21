@@ -13,7 +13,7 @@ Calculates the optical response of multilayer thin films using a transfer matrix
 \tabular{ll}{
 Package: \tab mlfilms\cr
 Type: \tab Package\cr
-Version: \tab 0.2.3\cr
+Version: \tab 0.2.4\cr
 Date: \tab 2013-04-04\cr
 License: \tab GPL\cr
 }
@@ -29,9 +29,3 @@ Maintainer: Tom Constant <t.j.constant@gmail.com>
 Introduction to Optics. Pedrotti, Pedrotti and Pedrotti, 3rd Edition. pp. 476 onwards.
 }
 \keyword{ package }
-\seealso{
-
-}
-\examples{
-
-}
