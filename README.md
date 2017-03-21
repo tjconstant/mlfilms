@@ -1,7 +1,7 @@
+[![packageversion](https://img.shields.io/badge/package%20version-0.2.3-lightgrey.svg)](commits/master) [![Last-changedate](https://img.shields.io/badge/last%20change-2017--03--21-lightgrey.svg)](/commits/master) [![Build Status](https://travis-ci.org/tjconstant/disp.plot.svg?branch=master)](https://travis-ci.org/tjconstant/mlfilms) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/disp.plot)](https://cran.r-project.org/package=mlfilms)
+
 mlfilms
 =======
-
-[![packageversion](https://img.shields.io/badge/package%20version-0.2.3-lightgrey.svg)](commits/master) [![Last-changedate](https://img.shields.io/badge/last%20change-2017--03--21-lightgrey.svg)](/commits/master) [![Build Status](https://travis-ci.org/tjconstant/disp.plot.svg?branch=master)](https://travis-ci.org/tjconstant/mlfilms) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/disp.plot)](https://cran.r-project.org/package=mlfilms)
 
 Calculation of reflection from multilayer films using the transfer matrix method.
 
