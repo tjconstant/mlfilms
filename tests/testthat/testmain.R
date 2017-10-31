@@ -36,3 +36,7 @@ test_that("utility functions for index to epsilon work", {
   expect_equal(round(n(18,1) + k(18,1)*1i,2), 
                round(sqrt(epsilon.re(4.244276, 0.117806) + 1i*epsilon.im(4.244276, 0.117806)),2))
 })
+
+test_that("utility functions for rindex to  n and k", {
+  expect_equal(n(18,1) + k(18,1)*1i, rindex(18,1))
+})
