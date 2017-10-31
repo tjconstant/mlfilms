@@ -40,3 +40,7 @@ test_that("utility functions for index to epsilon work", {
 test_that("utility functions for rindex to  n and k", {
   expect_equal(n(18,1) + k(18,1)*1i, rindex(18,1))
 })
+
+test_that("A warning appears when using pi/2 max radians", {
+  expect_warning(check_for_radians(pi/2))
+})
