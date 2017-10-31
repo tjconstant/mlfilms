@@ -1,7 +1,7 @@
-[![packageversion](https://img.shields.io/badge/package%20version-0.2.4-lightgrey.svg)](commits/master) [![Last-changedate](https://img.shields.io/badge/last%20change-2017--10--31-lightgrey.svg)](/commits/master) [![Build Status](https://travis-ci.org/tjconstant/disp.plot.svg?branch=master)](https://travis-ci.org/tjconstant/mlfilms) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tjconstant/mlfilms?branch=master&svg=true)](https://ci.appveyor.com/project/tjconstant/mlfilms) [![codecov](https://codecov.io/gh/tjconstant/mlfilms/branch/master/graph/badge.svg)](https://codecov.io/gh/tjconstant/mlfilms) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/disp.plot)](https://cran.r-project.org/package=mlfilms)
-
 mlfilms
 =======
+
+[![Last-changedate](https://img.shields.io/badge/last%20change-2017--10--31-lightgrey.svg)](/commits/master) [![Build Status](https://travis-ci.org/tjconstant/mlfilms.svg?branch=master)](https://travis-ci.org/tjconstant/mlfilms) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tjconstant/mlfilms?branch=master&svg=true)](https://ci.appveyor.com/project/tjconstant/mlfilms) [![codecov](https://codecov.io/gh/tjconstant/mlfilms/branch/master/graph/badge.svg)](https://codecov.io/gh/tjconstant/mlfilms) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/mlfilms)](https://cran.r-project.org/package=mlfilms)
 
 Calculation of reflection from multilayer films using the transfer matrix method.
 
