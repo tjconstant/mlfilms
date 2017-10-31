@@ -6,7 +6,7 @@
 \usage{
 dispersion_scan(angle_range = seq(0, 90, , 100),
   wavelength_range = seq(3.5e-07, 8.5e-07, , 100), polarisation = "p",
-  incident_medium.index = 1 + (0+0i), exit_medium.index = 1 + (0+0i),
+  incident_medium.index = 1 + 0i, exit_medium.index = 1 + 0i,
   layers, dispersive.function = "none", dispersive.layers = NA)
 }
 \arguments{
