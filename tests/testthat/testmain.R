@@ -1,4 +1,4 @@
-context("String length")
+context("main functions")
 
 test_that("angle scan function works", {
   
@@ -63,4 +63,34 @@ test_that("A warning appears when using pi/2 max radians", {
 
 test_that("normal completion when not using radians", {
   expect_error(check_for_radians(0), NA)
+})
+
+test_that("dispersion scan can accept dispersive materials", {
+  fake_index_function <- function(x){
+    
+    return(1e9*x/100 + 1i*1e9*x/300)
+  }
+  
+  stack <- list(thickness = c(40e-9), index=c(1), repetitions = 1)
+  
+  fake_index_function(400e-9)
+  
+  result <- dispersion_scan(layers = stack, dispersive.layers = 1, dispersive.function = "fake_index_function")
+  
+  expect_equal(round(result[1,3],2), 0.35)
+})
+
+test_that("wavelength scan can accept dispersive materials", {
+  fake_index_function <- function(x){
+    
+    return(1e9*x/100 + 1i*1e9*x/300)
+  }
+  
+  stack <- list(thickness = c(40e-9), index=c(1), repetitions = 1)
+  
+  fake_index_function(400e-9)
+  
+  result <- wavelength_scan(layers = stack, dispersive.layers = 1, dispersive.function = "fake_index_function")
+  
+  expect_equal(round(result[1,3],2), 0.09)
 })
