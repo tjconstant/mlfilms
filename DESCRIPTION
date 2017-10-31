@@ -9,3 +9,4 @@ Description: Calculates the optical response of multilayer thin films using a tr
 License: GPL
 Imports: Biodem
 RoxygenNote: 6.0.1
+Suggests: testthat
