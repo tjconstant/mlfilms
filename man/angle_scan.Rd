@@ -5,8 +5,8 @@
 \title{Fixed wavelengh angle-scan of a thin film stack}
 \usage{
 angle_scan(angle_range = seq(0, 90, , 500), wavelength = 6.33e-07,
-  polarisation = "p", incident_medium.index = 1 + 0i,
-  exit_medium.index = 1 + 0i, layers)
+  polarisation = "p", incident_medium.index = 1 + (0+0i),
+  exit_medium.index = 1 + (0+0i), layers)
 }
 \arguments{
 \item{angle_range}{The angle range in degrees. The default angle range is from 0 to 90.}
