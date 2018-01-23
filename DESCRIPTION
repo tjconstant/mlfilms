@@ -10,3 +10,5 @@ License: GPL
 Imports: Biodem
 RoxygenNote: 6.0.1
 Suggests: testthat
+URL: http://github.com/tjconstant/mlfilms
+BugReports: http://github.com/tjconstant/mlfilms/issues
