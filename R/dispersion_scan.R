@@ -4,6 +4,7 @@
 #'
 #' @inheritParams angle_scan 
 #' @inheritParams wavelength_scan
+#' @param show.progress Determine is a progress bar is to be printed to console
 #'
 #' @inherit angle_scan references details
 #' @return
@@ -21,7 +22,8 @@
 #' R_highlowStack6 <- dispersion_scan(angle_range = seq(0,89,,100),
 #'                                    incident_medium.index=1+0i,
 #'                                    exit_medium.index = 1.52+0i,
-#'                                    layers = layers)
+#'                                    layers = layers,
+#'                                    show.progress = FALSE)
 #' 
 #' x <- unique(R_highlowStack6$angle)
 #' y <- unique(R_highlowStack6$wavelength)
@@ -38,7 +40,8 @@ dispersion_scan <- function(angle_range = seq(0, 90, , 100),
                             exit_medium.index = 1 + 0i,
                             layers,
                             dispersive.function = "none",
-                            dispersive.layers = NA) {
+                            dispersive.layers = NA,
+                            show.progress = TRUE) {
   # change to radians
   check_for_radians(angle_range)
   angle_range <- angle_range * pi / 180
@@ -62,11 +65,13 @@ dispersion_scan <- function(angle_range = seq(0, 90, , 100),
     c(incident_medium.index, layers$index, exit_medium.index)
   layers$thickness <- c(0, layers$thickness, 0)
   
-  pb <-
-    utils::txtProgressBar(min = 0,
-                   max = (length(wavelength_range) * length(angle_range)),
-                   style = 3)
-  pb.counter <- 0
+  if(show.progress == TRUE){
+   pb <-
+     utils::txtProgressBar(min = 0,
+                     max = (length(wavelength_range) * length(angle_range)),
+                    style = 3)
+    pb.counter <- 0
+  }
   
   for (wavelength in wavelength_range) {
     for (angle in angle_range) {
@@ -127,7 +132,7 @@ dispersion_scan <- function(angle_range = seq(0, 90, , 100),
       cum_wavelength[counting_variable] <- wavelength
       
       #pb.counter<-pb.counter+1
-      utils::setTxtProgressBar(pb = pb, value = counting_variable)
+      if(show.progress == TRUE) utils::setTxtProgressBar(pb = pb, value = counting_variable)
       
     }
   }

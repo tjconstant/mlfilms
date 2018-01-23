@@ -6,7 +6,7 @@
 \usage{
 wavelength_scan(wavelength_range = seq(3.5e-07, 8.5e-07, , 500), angle = 0,
   polarisation = "p", incident_medium.index = 1 + 0i,
-  exit_medium.index = 1 +0i, layers, dispersive.function = "none",
+  exit_medium.index = 1 + 0i, layers, dispersive.function = "none",
   dispersive.layers = NA)
 }
 \arguments{

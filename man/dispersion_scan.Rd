@@ -7,7 +7,8 @@
 dispersion_scan(angle_range = seq(0, 90, , 100),
   wavelength_range = seq(3.5e-07, 8.5e-07, , 100), polarisation = "p",
   incident_medium.index = 1 + 0i, exit_medium.index = 1 + 0i,
-  layers, dispersive.function = "none", dispersive.layers = NA)
+  layers, dispersive.function = "none", dispersive.layers = NA,
+  show.progress = TRUE)
 }
 \arguments{
 \item{angle_range}{The angle range in degrees. The default angle range is from 0 to 90.}
@@ -25,6 +26,8 @@ dispersion_scan(angle_range = seq(0, 90, , 100),
 \item{dispersive.function}{For dispersive materials only, specify a function which returns the refractive index as a function of wavlength for the layer defined using the dispersive.layers varible.}
 
 \item{dispersive.layers}{Vector of layers to replace with dispersive.function. Starting with the top layer in the multilayer stack = 1.}
+
+\item{show.progress}{Determine is a progress bar is to be printed to console}
 }
 \value{
 Returns a dataframe object with the following parts:
@@ -50,7 +53,8 @@ repetitions = 6)
 R_highlowStack6 <- dispersion_scan(angle_range = seq(0,89,,100),
                                    incident_medium.index=1+0i,
                                    exit_medium.index = 1.52+0i,
-                                   layers = layers)
+                                   layers = layers,
+                                   show.progress = FALSE)
 
 x <- unique(R_highlowStack6$angle)
 y <- unique(R_highlowStack6$wavelength)
