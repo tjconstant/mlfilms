@@ -57,7 +57,7 @@ Plotting the result using `ggplot` shows a critical edge related to the onset of
 ```r
 library(ggplot2)
 
-qplot(R_plasmon$angle*180/pi,R_plasmon$Reflection,geom="line")+
+qplot(R_plasmon$angle,R_plasmon$Reflection,geom="line")+
   theme_bw()+
   scale_x_continuous(expand=c(0,0))+
   xlab(expression(polar~angle~theta~(degree)))+
