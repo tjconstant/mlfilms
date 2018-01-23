@@ -3,7 +3,7 @@ Type: Package
 Title: Calculates the optical response of multilayer thin films
 Version: 0.2.4
 Date: 2015-02-24
-Author: Tom Constant
+Authors@R: person("Tom", "Constant", role = c("aut", "cre"), email = "t.j.constant@gmail.com")
 Maintainer: Tom Constant <t.j.constant@gmail.com>
 Description: Calculates the optical response of multilayer thin films using a transfer matrix method.
 License: GPL
