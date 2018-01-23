@@ -1,7 +1,8 @@
+
 mlfilms
 =======
 
-[![Last-changedate](https://img.shields.io/badge/last%20change-2017--10--31-lightgrey.svg)](/commits/master) [![Build Status](https://travis-ci.org/tjconstant/mlfilms.svg?branch=master)](https://travis-ci.org/tjconstant/mlfilms) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tjconstant/mlfilms?branch=master&svg=true)](https://ci.appveyor.com/project/tjconstant/mlfilms) [![codecov](https://codecov.io/gh/tjconstant/mlfilms/branch/master/graph/badge.svg)](https://codecov.io/gh/tjconstant/mlfilms) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/mlfilms)](https://cran.r-project.org/package=mlfilms)
+[![Build Status](https://travis-ci.org/tjconstant/mlfilms.svg?branch=master)](https://travis-ci.org/tjconstant/mlfilms) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tjconstant/mlfilms?branch=master&svg=true)](https://ci.appveyor.com/project/tjconstant/mlfilms) [![codecov](https://codecov.io/gh/tjconstant/mlfilms/branch/master/graph/badge.svg)](https://codecov.io/gh/tjconstant/mlfilms) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/mlfilms)](https://cran.r-project.org/package=mlfilms)
 
 Calculation of reflection from multilayer films using the transfer matrix method.
 
@@ -13,10 +14,7 @@ To Install
 From within an R session, use the devtools package like so:
 
 ``` r
-install.packages('devtools')
-library(devtools)
-
-install_github('tjconstant/mlfilms')
+devtools::install_github('tjconstant/mlfilms')
 ```
 
 The Stack
