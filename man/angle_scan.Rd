@@ -4,11 +4,14 @@
 \alias{angle_scan}
 \title{Fixed wavelengh angle-scan of a thin film stack}
 \usage{
-angle_scan(angle_range = seq(0, 90, , 500), wavelength = 6.33e-07,
-  polarisation = "p", incident_medium.index = 1 + 0i,
-  exit_medium.index = 1 + 0i, layers)
+angle_scan(layers, angle_range = seq(0, 90, length.out = 500),
+  wavelength = 6.33e-07, polarisation = "p",
+  incident_medium.index = complex(real = 1, imaginary = 0),
+  exit_medium.index = complex(real = 1, imaginary = 0))
 }
 \arguments{
+\item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
+
 \item{angle_range}{The angle range in degrees. The default angle range is from 0 to 90.}
 
 \item{wavelength}{The wavelength in meters. The default is for a HeNe laser (633 nm)}
@@ -18,8 +21,6 @@ angle_scan(angle_range = seq(0, 90, , 500), wavelength = 6.33e-07,
 \item{incident_medium.index}{The global incident medium. Default is n=1+0i (air)}
 
 \item{exit_medium.index}{The global exit medium. Default is n=1+0i (air)}
-
-\item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
 }
 \value{
 Returns a dataframe with the angle, Refelctivity, Transmission and Absorbtion

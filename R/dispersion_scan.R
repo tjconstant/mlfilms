@@ -33,12 +33,12 @@
 #'       xlab = expression(angle~(degree)),
 #'       ylab = "wavelength (nm)")
 
-dispersion_scan <- function(angle_range = seq(0, 90, , 100),
-                            wavelength_range = seq(350e-9, 850e-9, , 100),
+dispersion_scan <- function(layers,
+                            angle_range = seq(0, 90, length.out =  100),
+                            wavelength_range = seq(350e-9, 850e-9, length.out =  100),
                             polarisation = "p",
-                            incident_medium.index = 1 + 0i,
-                            exit_medium.index = 1 + 0i,
-                            layers,
+                            incident_medium.index = complex(real = 1, imaginary = 0),
+                            exit_medium.index = complex(real = 0, imaginary = 1),
                             dispersive.function = "none",
                             dispersive.layers = NA,
                             show.progress = TRUE) {

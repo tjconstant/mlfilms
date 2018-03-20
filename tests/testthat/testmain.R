@@ -85,7 +85,7 @@ test_that("dispersion scan can accept dispersive materials", {
   
   result <- dispersion_scan(layers = stack, dispersive.layers = 1, dispersive.function = "fake_index_function")
   
-  expect_equal(round(result[1,3],2), 0.35)
+  expect_equal(round(result[1,3],2), 0.44)
 })
 
 test_that("wavelength scan can accept dispersive materials", {

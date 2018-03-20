@@ -2,12 +2,12 @@
 #' 
 #' @description Function to calculate the reflectivity as a function of angle for a given multilayer film.
 #'
+#' @param layers A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.
 #' @param angle_range The angle range in degrees. The default angle range is from 0 to 90.
 #' @param wavelength The wavelength in meters. The default is for a HeNe laser (633 nm)
 #' @param polarisation Linear polarisation of the light. Acceptable arguments are 'p' (Transverse Magnetic) or 's' (Transverse Electric).
 #' @param incident_medium.index The global incident medium. Default is n=1+0i (air)
 #' @param exit_medium.index The global exit medium. Default is n=1+0i (air)
-#' @param layers A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.
 #'
 #' @details 
 #' The layers list should be constructed like so:
@@ -28,12 +28,13 @@
 #' plot(R_plasmon$angle,R_plasmon$Reflection,type='l',lwd=2, ylim=c(0,1))
 #' title("Surface Plasmon in air")
 
-angle_scan <- function(angle_range = seq(0, 90, , 500),
+angle_scan <- function(layers,
+                       angle_range = seq(0, 90, length.out =  500),
                        wavelength = 633e-9,
                        polarisation = "p",
-                       incident_medium.index = 1 + 0i,
-                       exit_medium.index = 1 + 0i,
-                       layers) {
+                       incident_medium.index = complex(real = 1, imaginary = 0),
+                       exit_medium.index = complex(real = 1, imaginary = 0)
+                       ) {
   # change to radians
   check_for_radians(angle_range)
   angle_range <- angle_range * pi / 180
@@ -109,9 +110,7 @@ angle_scan <- function(angle_range = seq(0, 90, , 500),
       angle = angle_range * 180 / pi,
       Reflection = Re(Reflection),
       Transmission = Re(Transmission),
-      Absorption = 1 - Re(Transmission) - Re(Reflection),
-      r = r,
-      t = t
+      Absorption = 1 - Re(Transmission) - Re(Reflection)
     )
   )
 }

@@ -23,12 +23,12 @@
 #' plot(R_highlowStack6$wavelength,R_highlowStack6$Reflection,type='l',lwd=2, ylim=c(0,1))
 #' title("H/L index stack (N=6 & 2): Pedrotti Figure 22-9")
 
-wavelength_scan <- function(wavelength_range = seq(350e-9, 850e-9, , 500),
+wavelength_scan <- function(layers,
+                            wavelength_range = seq(350e-9, 850e-9, , 500),
                             angle = 0,
                             polarisation = "p",
-                            incident_medium.index = 1 + 0i,
-                            exit_medium.index = 1 + 0i,
-                            layers,
+                            incident_medium.index = complex(real = 1, imaginary = 0),
+                            exit_medium.index = complex(real = 1, imaginary = 0),
                             dispersive.function = "none",
                             dispersive.layers = NA) {
   # change to radians
@@ -111,9 +111,7 @@ wavelength_scan <- function(wavelength_range = seq(350e-9, 850e-9, , 500),
       wavelength = wavelength_range,
       Reflection = Re(Reflection),
       Transmission = Re(Transmission),
-      Absorption = 1 - Re(Transmission) - Re(Reflection),
-      r = r,
-      t = t
+      Absorption = 1 - Re(Transmission) - Re(Reflection)
     )
   )
 }

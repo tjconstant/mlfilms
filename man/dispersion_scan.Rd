@@ -4,13 +4,16 @@
 \alias{dispersion_scan}
 \title{Calculate reflectivity as a function of both angle and wavelength}
 \usage{
-dispersion_scan(angle_range = seq(0, 90, , 100),
-  wavelength_range = seq(3.5e-07, 8.5e-07, , 100), polarisation = "p",
-  incident_medium.index = 1 + 0i, exit_medium.index = 1 + 0i,
-  layers, dispersive.function = "none", dispersive.layers = NA,
+dispersion_scan(layers, angle_range = seq(0, 90, length.out = 100),
+  wavelength_range = seq(3.5e-07, 8.5e-07, length.out = 100),
+  polarisation = "p", incident_medium.index = complex(real = 1, imaginary =
+  0), exit_medium.index = complex(real = 0, imaginary = 1),
+  dispersive.function = "none", dispersive.layers = NA,
   show.progress = TRUE)
 }
 \arguments{
+\item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
+
 \item{angle_range}{The angle range in degrees. The default angle range is from 0 to 90.}
 
 \item{wavelength_range}{The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.}
@@ -20,8 +23,6 @@ dispersion_scan(angle_range = seq(0, 90, , 100),
 \item{incident_medium.index}{The global incident medium. Default is n=1+0i (air)}
 
 \item{exit_medium.index}{The global exit medium. Default is n=1+0i (air)}
-
-\item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
 
 \item{dispersive.function}{For dispersive materials only, specify a function which returns the refractive index as a function of wavlength for the layer defined using the dispersive.layers varible.}
 

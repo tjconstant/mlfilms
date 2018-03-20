@@ -4,12 +4,14 @@
 \alias{wavelength_scan}
 \title{Spectra calculation at a fixed angle}
 \usage{
-wavelength_scan(wavelength_range = seq(3.5e-07, 8.5e-07, , 500), angle = 0,
-  polarisation = "p", incident_medium.index = 1 + 0i,
-  exit_medium.index = 1 + 0i, layers, dispersive.function = "none",
-  dispersive.layers = NA)
+wavelength_scan(layers, wavelength_range = seq(3.5e-07, 8.5e-07, , 500),
+  angle = 0, polarisation = "p", incident_medium.index = complex(real = 1,
+  imaginary = 0), exit_medium.index = complex(real = 1, imaginary = 0),
+  dispersive.function = "none", dispersive.layers = NA)
 }
 \arguments{
+\item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
+
 \item{wavelength_range}{The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.}
 
 \item{angle}{Fixed angle in degrees. Default is 0.}
@@ -19,8 +21,6 @@ wavelength_scan(wavelength_range = seq(3.5e-07, 8.5e-07, , 500), angle = 0,
 \item{incident_medium.index}{The global incident medium. Default is n=1+0i (air)}
 
 \item{exit_medium.index}{The global exit medium. Default is n=1+0i (air)}
-
-\item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
 
 \item{dispersive.function}{For dispersive materials only, specify a function which returns the refractive index as a function of wavlength for the layer defined using the dispersive.layers varible.}
 
