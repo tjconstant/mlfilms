@@ -9,6 +9,7 @@ Description: Calculates the optical response of multilayer thin films using a tr
 License: GPL
 Imports: Biodem
 RoxygenNote: 6.0.1
-Suggests: testthat
+Suggests: testthat,
+    covr
 URL: http://github.com/tjconstant/mlfilms
 BugReports: http://github.com/tjconstant/mlfilms/issues
