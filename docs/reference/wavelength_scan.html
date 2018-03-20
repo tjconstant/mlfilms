@@ -87,14 +87,18 @@
     <p>Function to calculate the reflectivity as a function of wavelength for a given multilayer film.</p>
     
 
-    <pre class="usage"><span class='fu'>wavelength_scan</span>(<span class='kw'>wavelength_range</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>3.5e-07</span>, <span class='fl'>8.5e-07</span>, , <span class='fl'>500</span>), <span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>polarisation</span> <span class='kw'>=</span> <span class='st'>"p"</span>, <span class='kw'>incident_medium.index</span> <span class='kw'>=</span> <span class='fl'>1</span> + <span class='fl'>0i</span>,
-  <span class='kw'>exit_medium.index</span> <span class='kw'>=</span> <span class='fl'>1</span> + <span class='fl'>0i</span>, <span class='no'>layers</span>, <span class='kw'>dispersive.function</span> <span class='kw'>=</span> <span class='st'>"none"</span>,
-  <span class='kw'>dispersive.layers</span> <span class='kw'>=</span> <span class='fl'>NA</span>)</pre>
+    <pre class="usage"><span class='fu'>wavelength_scan</span>(<span class='no'>layers</span>, <span class='kw'>wavelength_range</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>3.5e-07</span>, <span class='fl'>8.5e-07</span>, , <span class='fl'>500</span>),
+  <span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>polarisation</span> <span class='kw'>=</span> <span class='st'>"p"</span>, <span class='kw'>incident_medium.index</span> <span class='kw'>=</span> <span class='fu'>complex</span>(<span class='kw'>real</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>imaginary</span> <span class='kw'>=</span> <span class='fl'>0</span>), <span class='kw'>exit_medium.index</span> <span class='kw'>=</span> <span class='fu'>complex</span>(<span class='kw'>real</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>imaginary</span> <span class='kw'>=</span> <span class='fl'>0</span>),
+  <span class='kw'>dispersive.function</span> <span class='kw'>=</span> <span class='st'>"none"</span>, <span class='kw'>dispersive.layers</span> <span class='kw'>=</span> <span class='fl'>NA</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>layers</th>
+      <td><p>A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.</p></td>
+    </tr>
     <tr>
       <th>wavelength_range</th>
       <td><p>The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.</p></td>
@@ -114,10 +118,6 @@
     <tr>
       <th>exit_medium.index</th>
       <td><p>The global exit medium. Default is n=1+0i (air)</p></td>
-    </tr>
-    <tr>
-      <th>layers</th>
-      <td><p>A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.</p></td>
     </tr>
     <tr>
       <th>dispersive.function</th>
@@ -150,7 +150,7 @@
 
 <span class='no'>R_highlowStack6</span><span class='kw'>&lt;-</span><span class='fu'>wavelength_scan</span>(<span class='kw'>incident_medium.index</span><span class='kw'>=</span><span class='fl'>1</span>+<span class='fl'>0i</span>,<span class='kw'>exit_medium.index</span><span class='kw'>=</span><span class='fl'>1.52</span>+<span class='fl'>0i</span>,<span class='kw'>layers</span><span class='kw'>=</span><span class='no'>layers</span>)
 
-<span class='fu'>plot</span>(<span class='no'>R_highlowStack6</span>$<span class='no'>wavelength</span>,<span class='no'>R_highlowStack6</span>$<span class='no'>Reflection</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>'l'</span>,<span class='kw'>lwd</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>0</span>,<span class='fl'>1</span>))</div><div class='input'><span class='fu'>title</span>(<span class='st'>"H/L index stack (N=6 &amp; 2): Pedrotti Figure 22-9"</span>)</div><div class='img'><img src='wavelength_scan-1.png' alt='' width='700' height='432.632880098887' /></div></pre>
+<span class='fu'>plot</span>(<span class='no'>R_highlowStack6</span>$<span class='no'>wavelength</span>,<span class='no'>R_highlowStack6</span>$<span class='no'>Reflection</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>'l'</span>,<span class='kw'>lwd</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>0</span>,<span class='fl'>1</span>))</div><div class='input'><span class='fu'>title</span>(<span class='st'>"H/L index stack (N=6 &amp; 2): Pedrotti Figure 22-9"</span>)</div><div class='img'><img src='wavelength_scan-2.png' alt='' width='700' height='432.632880098887' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
