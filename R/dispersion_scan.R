@@ -8,8 +8,6 @@
 #' @param polarisation Linear polarisation of the light. Acceptable arguments are 'p' (Transverse Magnetic) or 's' (Transverse Electric).
 #' @param incident_medium.index The global incident medium. Default is n=1+0i (air)
 #' @param exit_medium.index The global exit medium. Default is n=1+0i (air)
-#' @param dispersive.function For dispersive materials only, specify a function which returns the refractive index as a function of wavlength for the layer defined using the dispersive.layers varible.
-#' @param dispersive.layers Vector of layers to replace with dispersive.function. Starting with the top layer in the multilayer stack = 1.
 #' @param show.progress Determine is a progress bar is to be printed to console
 #'
 #' @inherit angle_scan references details
@@ -47,8 +45,6 @@ dispersion_scan <- function(layers,
                             polarisation = "p",
                             incident_medium.index = complex(real = 1, imaginary = 0),
                             exit_medium.index = complex(real = 1, imaginary = 0),
-                            dispersive.function = "none",
-                            dispersive.layers = NA,
                             show.progress = TRUE) {
   # change to radians
   check_for_radians(angles)
@@ -80,7 +76,21 @@ dispersion_scan <- function(layers,
     pb.counter <- 0
   }
   
+  ## Dispersive Function Bit Before Loop
+  # Note the dispersive layers
+  
+  dispersive.layers <- which(lapply(layers$index, typeof) == "closure")
+  unparsed_layers <- layers$index
+    
   for (wavelength in wavelengths) {
+    
+    # Dispersive Function bit After Loop
+    # Replace dispersive functions with refractive index for this wavelength
+    
+    for(i in dispersive.layers){
+      layers$index[[i]] <- unparsed_layers[[i]](wavelength)
+    }
+    layers$index <- unlist(layers$index)
     
     for (angle in angles) {
       
@@ -90,14 +100,9 @@ dispersion_scan <- function(layers,
                   nrow = 2,
                   ncol = 2,
                   byrow = TRUE)
-      
+
       for (layer in 1:length(layers$index)) {
-        if (dispersive.function != "none") {
-          disp.index <- match.fun(dispersive.function)
-          layers$index[dispersive.layers + 1] <-
-            disp.index(wavelength)
-        }
-        
+
         L <-
           TMatrix(
             lambda0 = wavelength,

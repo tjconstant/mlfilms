@@ -74,28 +74,17 @@ test_that("normal completion when not using radians", {
 })
 
 test_that("dispersion scan can accept dispersive materials", {
-  fake_index_function <- function(x){
-    
-    return(1e9*x/100 + 1i*1e9*x/300)
+  fake_material <- function(wavelength){
+    return(wavelength*1e8+0.1i)
   }
   
-  stack <- list(thickness = c(40e-9), index=c(1), repetitions = 1)
+  stack <- list(index = c(1.33, fake_material, 1.2+0.1), 
+                thickness = c(40e-9, 100e-9, 20e-9))
+  result <- dispersion_scan(stack)
   
-  fake_index_function(400e-9)
-  
-  result <- dispersion_scan(layers = stack, dispersive.layers = 1, dispersive.function = "fake_index_function")
-  
-  expect_equal(round(result[1,3],2), 0.35)
+  expect_equal(round(result$Reflection[10],3), 0.458)
 })
 
-# test_that("wavelength scan can accept dispersive materials", {
-# 
-#   my_material <- function(wavelength) return(wavelength*1e9+0.1i)
-#   stack <- list(index = c(1.1,1,1), thickness = c(10e-9,40e-9,20e-9), repetitions = 1)
-#   result <- wavelength_scan(stack, dispersive.function = "my_material", dispersive.layers = 2)
-#   expect_equal(round(result$Transmission[1],3), 0.005)
-# 
-# })
 
 test_that("all top-level functions agree",{
   stack <- list(thickness = c(40e-9), index=c(1+0.1i), repetitions = 1)

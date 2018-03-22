@@ -8,7 +8,6 @@ dispersion_scan(layers, angles = seq(0, 90, length.out = 100),
   wavelengths = seq(3.5e-07, 8.5e-07, length.out = 100), polarisation = "p",
   incident_medium.index = complex(real = 1, imaginary = 0),
   exit_medium.index = complex(real = 1, imaginary = 0),
-  dispersive.function = "none", dispersive.layers = NA,
   show.progress = TRUE)
 }
 \arguments{
@@ -23,10 +22,6 @@ dispersion_scan(layers, angles = seq(0, 90, length.out = 100),
 \item{incident_medium.index}{The global incident medium. Default is n=1+0i (air)}
 
 \item{exit_medium.index}{The global exit medium. Default is n=1+0i (air)}
-
-\item{dispersive.function}{For dispersive materials only, specify a function which returns the refractive index as a function of wavlength for the layer defined using the dispersive.layers varible.}
-
-\item{dispersive.layers}{Vector of layers to replace with dispersive.function. Starting with the top layer in the multilayer stack = 1.}
 
 \item{show.progress}{Determine is a progress bar is to be printed to console}
 }

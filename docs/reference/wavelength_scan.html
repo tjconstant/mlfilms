@@ -60,6 +60,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/Dispersive_materials.html">Dispersive Materials</a>
+    </li>
+  </ul>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -90,7 +102,7 @@
     <pre class="usage"><span class='fu'>wavelength_scan</span>(<span class='no'>layers</span>, <span class='kw'>wavelengths</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>3.5e-07</span>, <span class='fl'>8.5e-07</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>500</span>),
   <span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>polarisation</span> <span class='kw'>=</span> <span class='st'>"p"</span>, <span class='kw'>incident_medium.index</span> <span class='kw'>=</span> <span class='fu'>complex</span>(<span class='kw'>real</span> <span class='kw'>=</span> <span class='fl'>1</span>,
   <span class='kw'>imaginary</span> <span class='kw'>=</span> <span class='fl'>0</span>), <span class='kw'>exit_medium.index</span> <span class='kw'>=</span> <span class='fu'>complex</span>(<span class='kw'>real</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>imaginary</span> <span class='kw'>=</span> <span class='fl'>0</span>),
-  <span class='kw'>dispersive.function</span> <span class='kw'>=</span> <span class='st'>"none"</span>, <span class='kw'>dispersive.layers</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>show.progress</span> <span class='kw'>=</span> <span class='no'>F</span>)</pre>
+  <span class='kw'>show.progress</span> <span class='kw'>=</span> <span class='no'>F</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -120,14 +132,6 @@
       <td><p>The global exit medium. Default is n=1+0i (air)</p></td>
     </tr>
     <tr>
-      <th>dispersive.function</th>
-      <td><p>For dispersive materials only, specify a function which returns the refractive index as a function of wavlength for the layer defined using the dispersive.layers varible.</p></td>
-    </tr>
-    <tr>
-      <th>dispersive.layers</th>
-      <td><p>Vector of layers to replace with dispersive.function. Starting with the top layer in the multilayer stack = 1.</p></td>
-    </tr>
-    <tr>
       <th>show.progress</th>
       <td><p>Determine is a progress bar is to be printed to console</p></td>
     </tr>
@@ -154,7 +158,7 @@
 
 <span class='no'>R_highlowStack6</span><span class='kw'>&lt;-</span><span class='fu'>wavelength_scan</span>(<span class='kw'>incident_medium.index</span><span class='kw'>=</span><span class='fl'>1</span>+<span class='fl'>0i</span>,<span class='kw'>exit_medium.index</span><span class='kw'>=</span><span class='fl'>1.52</span>+<span class='fl'>0i</span>,<span class='kw'>layers</span><span class='kw'>=</span><span class='no'>layers</span>)
 
-<span class='fu'>plot</span>(<span class='no'>R_highlowStack6</span>$<span class='no'>wavelength</span>,<span class='no'>R_highlowStack6</span>$<span class='no'>Reflection</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>'l'</span>,<span class='kw'>lwd</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>0</span>,<span class='fl'>1</span>))</div><div class='input'><span class='fu'>title</span>(<span class='st'>"H/L index stack (N=6 &amp; 2): Pedrotti Figure 22-9"</span>)</div><div class='img'><img src='wavelength_scan-3.png' alt='' width='700' height='432.632880098887' /></div></pre>
+<span class='fu'>plot</span>(<span class='no'>R_highlowStack6</span>$<span class='no'>wavelength</span>,<span class='no'>R_highlowStack6</span>$<span class='no'>Reflection</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>'l'</span>,<span class='kw'>lwd</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>ylim</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>0</span>,<span class='fl'>1</span>))</div><div class='input'><span class='fu'>title</span>(<span class='st'>"H/L index stack (N=6 &amp; 2): Pedrotti Figure 22-9"</span>)</div><div class='img'><img src='wavelength_scan-5.png' alt='' width='700' height='432.632880098887' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

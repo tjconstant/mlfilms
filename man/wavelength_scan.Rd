@@ -7,7 +7,7 @@
 wavelength_scan(layers, wavelengths = seq(3.5e-07, 8.5e-07, length.out = 500),
   angle = 0, polarisation = "p", incident_medium.index = complex(real = 1,
   imaginary = 0), exit_medium.index = complex(real = 1, imaginary = 0),
-  dispersive.function = "none", dispersive.layers = NA, show.progress = F)
+  show.progress = F)
 }
 \arguments{
 \item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
@@ -21,10 +21,6 @@ wavelength_scan(layers, wavelengths = seq(3.5e-07, 8.5e-07, length.out = 500),
 \item{incident_medium.index}{The global incident medium. Default is n=1+0i (air)}
 
 \item{exit_medium.index}{The global exit medium. Default is n=1+0i (air)}
-
-\item{dispersive.function}{For dispersive materials only, specify a function which returns the refractive index as a function of wavlength for the layer defined using the dispersive.layers varible.}
-
-\item{dispersive.layers}{Vector of layers to replace with dispersive.function. Starting with the top layer in the multilayer stack = 1.}
 
 \item{show.progress}{Determine is a progress bar is to be printed to console}
 }

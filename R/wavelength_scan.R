@@ -26,8 +26,6 @@ wavelength_scan <- function(layers,
                             polarisation = "p",
                             incident_medium.index = complex(real = 1, imaginary = 0),
                             exit_medium.index = complex(real = 1, imaginary = 0),
-                            dispersive.function = "none",
-                            dispersive.layers = NA,
                             show.progress = F) {
   
   result <- dispersion_scan(layers = layers,
@@ -36,8 +34,6 @@ wavelength_scan <- function(layers,
                             polarisation = polarisation,
                             incident_medium.index = incident_medium.index,
                             exit_medium.index = exit_medium.index,
-                            dispersive.function = dispersive.function,
-                            dispersive.layers = dispersive.layers,
                             show.progress = show.progress)                  
   
   return(result) 
