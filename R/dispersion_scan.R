@@ -40,7 +40,7 @@ dispersion_scan <- function(layers,
                             wavelengths = seq(350e-9, 850e-9, length.out =  100),
                             polarisation = "p",
                             incident_medium.index = complex(real = 1, imaginary = 0),
-                            exit_medium.index = complex(real = 0, imaginary = 1),
+                            exit_medium.index = complex(real = 1, imaginary = 0),
                             dispersive.function = "none",
                             dispersive.layers = NA,
                             show.progress = TRUE) {
@@ -120,15 +120,14 @@ dispersion_scan <- function(layers,
       t <- tFromTMatrix(M = M,
                         gamma0 = gamma0,
                         gamma2 = gamma2)
-      if (polarisation == "s") {
-        Transmission[counting_variable] <-
-          t * Conj(t) * (exit_medium.index * cos(L$theta2) / (incident_medium.index *
-                                                                cos(angle)))
-      } else if (polarisation == "p") {
-        Transmission[counting_variable] <-
-          t * Conj(t) * (exit_medium.index * Conj(cos(L$theta2)) / (incident_medium.index *
-                                                                      Conj(cos(angle))))
-      }
+      
+      Transmission[counting_variable] <-
+        TransmissionCalc(t,
+                           angle,
+                           L$theta2,
+                           incident_medium.index,
+                           exit_medium.index,
+                           polarisation)
       
       cum_angle[counting_variable] <- angle
       cum_wavelength[counting_variable] <- wavelength

@@ -7,7 +7,7 @@
 dispersion_scan(layers, angles = seq(0, 90, length.out = 100),
   wavelengths = seq(3.5e-07, 8.5e-07, length.out = 100), polarisation = "p",
   incident_medium.index = complex(real = 1, imaginary = 0),
-  exit_medium.index = complex(real = 0, imaginary = 1),
+  exit_medium.index = complex(real = 1, imaginary = 0),
   dispersive.function = "none", dispersive.layers = NA,
   show.progress = TRUE)
 }

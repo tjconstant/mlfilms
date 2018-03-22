@@ -24,96 +24,27 @@
 #' title("H/L index stack (N=6 & 2): Pedrotti Figure 22-9")
 
 wavelength_scan <- function(layers,
-                            wavelengths = seq(350e-9, 850e-9, , 500),
+                            wavelengths = seq(350e-9, 850e-9, length.out = 100),
                             angle = 0,
                             polarisation = "p",
                             incident_medium.index = complex(real = 1, imaginary = 0),
                             exit_medium.index = complex(real = 1, imaginary = 0),
                             dispersive.function = "none",
-                            dispersive.layers = NA) {
-  # change to radians
-  check_for_radians(angle)
-  angle <- angle * pi / 180
+                            dispersive.layers = NA,
+                            show.progress = F) {
   
-  # library(Biodem) #need Biodem for raising matrix to a power function (mtx.exp)
-  mtx.exp <- Biodem::mtx.exp
+  result <- dispersion_scan(layers = layers,
+                            angles = angle,
+                            wavelengths = wavelengths,
+                            polarisation = polarisation,
+                            incident_medium.index = incident_medium.index,
+                            exit_medium.index = exit_medium.index,
+                            dispersive.function = dispersive.function,
+                            dispersive.layers = dispersive.layers,
+                            show.progress = show.progress)                  
   
-  # initalize reflection/transmission varible
-  Reflection <- numeric(length(wavelengths))
-  Transmission <- numeric(length(wavelengths))
-  r <- numeric(length(wavelengths))
-  t <- numeric(length(wavelengths))
+  return(result) 
   
-  # prevent numerical instablity by adding an extra entry and exit medium
-  layers$index <-
-    c(incident_medium.index, layers$index, exit_medium.index)
-  layers$thickness <- c(0, layers$thickness, 0)
-  
-  counting_variable <- 0
-  
-  
-  for (wavelength in wavelengths) {
-    counting_variable <- counting_variable + 1
-    
-    M <- matrix(c(1, 0, 0, 1),
-                nrow = 2,
-                ncol = 2,
-                byrow = TRUE)
-    
-    for (layer in 1:length(layers$index)) {
-      if (dispersive.function != "none") {
-        disp.index <- match.fun(dispersive.function)
-        layers$index[dispersive.layers + 1] <- disp.index(wavelength)
-      }
-      
-      L <-
-        TMatrix(
-          lambda0 = wavelength,
-          polarisation = polarisation,
-          n0 = incident_medium.index,
-          n1 = layers$index[layer],
-          n2 = exit_medium.index,
-          d1 = layers$thickness[layer],
-          theta0 = angle
-        )
-      if (layer == 1)
-        gamma0 <- L$gamma0
-      if (layer == length(layers$index))
-        gamma2 <- L$gamma2
-      M <- M %*% L$TMatrix
-      
-    }
-    
-    #repeat unit cells
-    M <- mtx.exp(M, layers$repetitions)
-    
-    r <- rFromTMatrix(M = M,
-                      gamma0 = gamma0,
-                      gamma2 = gamma2)
-    Reflection[counting_variable] <- ReflectionCalc(r)
-    
-    t <- tFromTMatrix(M = M,
-                      gamma0 = gamma0,
-                      gamma2 = gamma2)
-    Transmission[counting_variable] <-
-      TransmissionCalc(t,
-                       angle,
-                       L$theta2,
-                       incident_medium.index,
-                       exit_medium.index,
-                       polarisation)
-    
-    
-  }
-  
-  return(
-    data.frame(
-      wavelength = wavelengths,
-      Reflection = Re(Reflection),
-      Transmission = Re(Transmission),
-      Absorption = 1 - Re(Transmission) - Re(Reflection)
-    )
-  )
 }
 
 

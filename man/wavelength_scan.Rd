@@ -4,10 +4,10 @@
 \alias{wavelength_scan}
 \title{Spectra calculation at a fixed angle}
 \usage{
-wavelength_scan(layers, wavelengths = seq(3.5e-07, 8.5e-07, , 500),
+wavelength_scan(layers, wavelengths = seq(3.5e-07, 8.5e-07, length.out = 100),
   angle = 0, polarisation = "p", incident_medium.index = complex(real = 1,
   imaginary = 0), exit_medium.index = complex(real = 1, imaginary = 0),
-  dispersive.function = "none", dispersive.layers = NA)
+  dispersive.function = "none", dispersive.layers = NA, show.progress = F)
 }
 \arguments{
 \item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
