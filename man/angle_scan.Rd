@@ -4,7 +4,7 @@
 \alias{angle_scan}
 \title{Fixed wavelengh angle-scan of a thin film stack}
 \usage{
-angle_scan(layers, angles = seq(0, 90, length.out = 100),
+angle_scan(layers, angles = seq(0, 90, length.out = 500),
   wavelength = 6.33e-07, polarisation = "p",
   incident_medium.index = complex(real = 1, imaginary = 0),
   exit_medium.index = complex(real = 1, imaginary = 0), show.progress = F)

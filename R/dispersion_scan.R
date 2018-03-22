@@ -48,23 +48,22 @@ dispersion_scan <- function(layers,
   check_for_radians(angles)
   angles <- angles * pi / 180
   
+  # check layer object
+  layers <- parse_layers(layers)
+  
   # library(Biodem) #need Biodem for raising matrix to a power function (mtx.exp)
   mtx.exp <- Biodem::mtx.exp
   
   # initalize reflection/transmission varible
-  # Reflection<-c()
   Reflection <- numeric(length(angles) * length(wavelengths))
-  Transmission <-
-    numeric(length(angles) * length(wavelengths))
+  Transmission <- numeric(length(angles) * length(wavelengths))
   
   cum_angle <- numeric(length(angles) * length(wavelengths))
-  cum_wavelength <-
-    numeric(length(angles) * length(wavelengths))
+  cum_wavelength <- numeric(length(angles) * length(wavelengths))
   counting_variable <- 0
   
   # prevent numerical instablity by adding an extra entry and exit medium
-  layers$index <-
-    c(incident_medium.index, layers$index, exit_medium.index)
+  layers$index <- c(incident_medium.index, layers$index, exit_medium.index)
   layers$thickness <- c(0, layers$thickness, 0)
   
   if(show.progress == TRUE){
@@ -76,7 +75,9 @@ dispersion_scan <- function(layers,
   }
   
   for (wavelength in wavelengths) {
+    
     for (angle in angles) {
+      
       counting_variable <- counting_variable + 1
       
       M <- matrix(c(1, 0, 0, 1),

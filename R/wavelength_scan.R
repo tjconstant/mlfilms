@@ -24,7 +24,7 @@
 #' title("H/L index stack (N=6 & 2): Pedrotti Figure 22-9")
 
 wavelength_scan <- function(layers,
-                            wavelengths = seq(350e-9, 850e-9, length.out = 100),
+                            wavelengths = seq(350e-9, 850e-9, length.out = 500),
                             angle = 0,
                             polarisation = "p",
                             incident_medium.index = complex(real = 1, imaginary = 0),

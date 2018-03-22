@@ -29,7 +29,7 @@
 #' title("Surface Plasmon in air")
 
 angle_scan <- function(layers,
-                       angles = seq(0, 90, length.out =  100),
+                       angles = seq(0, 90, length.out =  500),
                        wavelength = 633e-9,
                        polarisation = "p",
                        incident_medium.index = complex(real = 1, imaginary = 0),

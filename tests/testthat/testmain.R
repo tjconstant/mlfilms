@@ -89,12 +89,12 @@ test_that("dispersion scan can accept dispersive materials", {
 })
 
 # test_that("wavelength scan can accept dispersive materials", {
-#   
+# 
 #   my_material <- function(wavelength) return(wavelength*1e9+0.1i)
 #   stack <- list(index = c(1.1,1,1), thickness = c(10e-9,40e-9,20e-9), repetitions = 1)
 #   result <- wavelength_scan(stack, dispersive.function = "my_material", dispersive.layers = 2)
 #   expect_equal(round(result$Transmission[1],3), 0.005)
-#   
+# 
 # })
 
 test_that("all top-level functions agree",{
@@ -105,3 +105,13 @@ test_that("all top-level functions agree",{
   
   expect_identical(a,w,d)
 })
+
+test_that("a missing repetition list item is defaulted to 1", {
+  stack <- list(thickness = c(40e-9), index=c(1+0.1i))
+  expect_warning(angle_scan(stack))
+})
+
+test_that("different length thicknesses/indexes error" ,{
+  stack <- list(thickness = 1:2, index = 1)
+  expect_error(wavelength_scan(stack))
+  })
