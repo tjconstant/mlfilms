@@ -2,11 +2,8 @@
 #' 
 #' @description Function to calculate the reflectivity, transmission and absorption as a function of wavelength for a given multilayer film.
 #' 
-#' @param wavelengths The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.
+#' @inheritParams dispersion_scan 
 #' @param angle Fixed angle in degrees. Default is 0.
-#' @inheritParams angle_scan 
-#' @param dispersive.function For dispersive materials only, specify a function which returns the refractive index as a function of wavlength for the layer defined using the dispersive.layers varible.
-#' @param dispersive.layers Vector of layers to replace with dispersive.function. Starting with the top layer in the multilayer stack = 1.
 #'
 #' @return Returns a dataframe with the wavelength, Refelctivity, Transmission and Absorbtion
 #' 

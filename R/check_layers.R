@@ -2,7 +2,7 @@
 # Check to see if repetitions are specified, if not assume 1.
 check_repetitions <- function(layers){
   
-  if(!("repetitions" %in% names(stack))){
+  if(!("repetitions" %in% names(layers))){
     layers$repetitions = 1
     warning("Number of repetitions not specified, defaulting to 1.")
   }

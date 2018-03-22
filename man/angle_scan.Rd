@@ -21,6 +21,8 @@ angle_scan(layers, angles = seq(0, 90, length.out = 500),
 \item{incident_medium.index}{The global incident medium. Default is n=1+0i (air)}
 
 \item{exit_medium.index}{The global exit medium. Default is n=1+0i (air)}
+
+\item{show.progress}{Determine is a progress bar is to be printed to console}
 }
 \value{
 Returns a dataframe with the angle, Refelctivity, Transmission and Absorbtion

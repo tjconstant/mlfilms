@@ -25,6 +25,8 @@ wavelength_scan(layers, wavelengths = seq(3.5e-07, 8.5e-07, length.out = 500),
 \item{dispersive.function}{For dispersive materials only, specify a function which returns the refractive index as a function of wavlength for the layer defined using the dispersive.layers varible.}
 
 \item{dispersive.layers}{Vector of layers to replace with dispersive.function. Starting with the top layer in the multilayer stack = 1.}
+
+\item{show.progress}{Determine is a progress bar is to be printed to console}
 }
 \value{
 Returns a dataframe with the wavelength, Refelctivity, Transmission and Absorbtion

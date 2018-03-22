@@ -2,7 +2,7 @@
 % Please edit documentation in R/dispersion_scan.R
 \name{dispersion_scan}
 \alias{dispersion_scan}
-\title{Calculate reflectivity as a function of both angle and wavelength}
+\title{Calculate optical response as a function of both angle and wavelength}
 \usage{
 dispersion_scan(layers, angles = seq(0, 90, length.out = 100),
   wavelengths = seq(3.5e-07, 8.5e-07, length.out = 100), polarisation = "p",

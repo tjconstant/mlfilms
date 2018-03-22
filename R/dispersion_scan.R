@@ -1,9 +1,15 @@
-#' Calculate reflectivity as a function of both angle and wavelength
+#' Calculate optical response as a function of both angle and wavelength
 #' 
 #' @description Calculate reflectivity, transmission and absorption as a function of both angle and wavelength
 #'
-#' @inheritParams angle_scan 
-#' @inheritParams wavelength_scan
+#' @param layers A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.
+#' @param angles The angle range in degrees. The default angle range is from 0 to 90.
+#' @param wavelengths The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.
+#' @param polarisation Linear polarisation of the light. Acceptable arguments are 'p' (Transverse Magnetic) or 's' (Transverse Electric).
+#' @param incident_medium.index The global incident medium. Default is n=1+0i (air)
+#' @param exit_medium.index The global exit medium. Default is n=1+0i (air)
+#' @param dispersive.function For dispersive materials only, specify a function which returns the refractive index as a function of wavlength for the layer defined using the dispersive.layers varible.
+#' @param dispersive.layers Vector of layers to replace with dispersive.function. Starting with the top layer in the multilayer stack = 1.
 #' @param show.progress Determine is a progress bar is to be printed to console
 #'
 #' @inherit angle_scan references details

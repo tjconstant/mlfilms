@@ -2,12 +2,8 @@
 #' 
 #' @description Function to calculate the reflectivity, transmission and absorption as a function of angle for a given multilayer film.
 #'
-#' @param layers A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.
-#' @param angles The angle range in degrees. The default angle range is from 0 to 90.
+#' @inheritParams dispersion_scan 
 #' @param wavelength The wavelength in meters. The default is for a HeNe laser (633 nm)
-#' @param polarisation Linear polarisation of the light. Acceptable arguments are 'p' (Transverse Magnetic) or 's' (Transverse Electric).
-#' @param incident_medium.index The global incident medium. Default is n=1+0i (air)
-#' @param exit_medium.index The global exit medium. Default is n=1+0i (air)
 #'
 #' @details 
 #' The layers list should be constructed like so:
