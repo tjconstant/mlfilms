@@ -5,3 +5,4 @@
 ^appveyor\.yml$
 ^docs$
 ^codecov\.yml$
+^_pkgdown\.yml$
