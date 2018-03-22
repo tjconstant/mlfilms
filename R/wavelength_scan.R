@@ -1,8 +1,8 @@
 #' Spectra calculation at a fixed angle
 #' 
-#' @description Function to calculate the reflectivity as a function of wavelength for a given multilayer film.
+#' @description Function to calculate the reflectivity, transmission and absorption as a function of wavelength for a given multilayer film.
 #' 
-#' @param wavelength_range The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.
+#' @param wavelengths The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.
 #' @param angle Fixed angle in degrees. Default is 0.
 #' @inheritParams angle_scan 
 #' @param dispersive.function For dispersive materials only, specify a function which returns the refractive index as a function of wavlength for the layer defined using the dispersive.layers varible.
@@ -24,7 +24,7 @@
 #' title("H/L index stack (N=6 & 2): Pedrotti Figure 22-9")
 
 wavelength_scan <- function(layers,
-                            wavelength_range = seq(350e-9, 850e-9, , 500),
+                            wavelengths = seq(350e-9, 850e-9, , 500),
                             angle = 0,
                             polarisation = "p",
                             incident_medium.index = complex(real = 1, imaginary = 0),
@@ -39,10 +39,10 @@ wavelength_scan <- function(layers,
   mtx.exp <- Biodem::mtx.exp
   
   # initalize reflection/transmission varible
-  Reflection <- numeric(length(wavelength_range))
-  Transmission <- numeric(length(wavelength_range))
-  r <- numeric(length(wavelength_range))
-  t <- numeric(length(wavelength_range))
+  Reflection <- numeric(length(wavelengths))
+  Transmission <- numeric(length(wavelengths))
+  r <- numeric(length(wavelengths))
+  t <- numeric(length(wavelengths))
   
   # prevent numerical instablity by adding an extra entry and exit medium
   layers$index <-
@@ -52,7 +52,7 @@ wavelength_scan <- function(layers,
   counting_variable <- 0
   
   
-  for (wavelength in wavelength_range) {
+  for (wavelength in wavelengths) {
     counting_variable <- counting_variable + 1
     
     M <- matrix(c(1, 0, 0, 1),
@@ -108,7 +108,7 @@ wavelength_scan <- function(layers,
   
   return(
     data.frame(
-      wavelength = wavelength_range,
+      wavelength = wavelengths,
       Reflection = Re(Reflection),
       Transmission = Re(Transmission),
       Absorption = 1 - Re(Transmission) - Re(Reflection)

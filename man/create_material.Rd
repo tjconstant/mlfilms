@@ -2,10 +2,10 @@
 % Please edit documentation in R/create_material.R
 \name{create_material}
 \alias{create_material}
-\title{Create Dispersive Material Template Function}
+\title{Create dispersive material template file}
 \usage{
 create_material()
 }
 \description{
-Create Dispersive Material Template Function
+Create dispersive material template file
 }

@@ -1,9 +1,9 @@
 #' Fixed wavelengh angle-scan of a thin film stack
 #' 
-#' @description Function to calculate the reflectivity as a function of angle for a given multilayer film.
+#' @description Function to calculate the reflectivity, transmission and absorption as a function of angle for a given multilayer film.
 #'
 #' @param layers A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.
-#' @param angle_range The angle range in degrees. The default angle range is from 0 to 90.
+#' @param angles The angle range in degrees. The default angle range is from 0 to 90.
 #' @param wavelength The wavelength in meters. The default is for a HeNe laser (633 nm)
 #' @param polarisation Linear polarisation of the light. Acceptable arguments are 'p' (Transverse Magnetic) or 's' (Transverse Electric).
 #' @param incident_medium.index The global incident medium. Default is n=1+0i (air)
@@ -12,7 +12,7 @@
 #' @details 
 #' The layers list should be constructed like so:
 #' 
-#' layers<-list(index=..., thickness=..., repetitions=...)
+#' \code{layers <- list(index = ..., thickness = ..., repetitions = ...)}
 #'
 #' where index and thickness are vectors containing the stack parameters in order from the top interface to the bottom. Repetitions is an integer repeating the stack.
 #' @references Introduction to Optics 3rd Edition, Pearson international edition by Frank L. Pedrotti, Leno Matthew Pedrotti, Leno S. Pedrotti
@@ -29,15 +29,15 @@
 #' title("Surface Plasmon in air")
 
 angle_scan <- function(layers,
-                       angle_range = seq(0, 90, length.out =  500),
+                       angles = seq(0, 90, length.out =  500),
                        wavelength = 633e-9,
                        polarisation = "p",
                        incident_medium.index = complex(real = 1, imaginary = 0),
                        exit_medium.index = complex(real = 1, imaginary = 0)
                        ) {
   # change to radians
-  check_for_radians(angle_range)
-  angle_range <- angle_range * pi / 180
+  check_for_radians(angles)
+  angles <- angles * pi / 180
   
   # library(Biodem) #need Biodem for raising matrix to a power function (mtx.exp)
   mtx.exp <- Biodem::mtx.exp
@@ -45,10 +45,10 @@ angle_scan <- function(layers,
   # if(is.vector(layers)) layers<-list(index=layers[1],thickness=layers[2],repetitions=layers[3] )
   
   # initalize reflection/transmisson varible
-  Reflection <- numeric(length(angle_range))
-  Transmission <- numeric(length(angle_range))
-  r <- numeric(length(angle_range))
-  t <- numeric(length(angle_range))
+  Reflection <- numeric(length(angles))
+  Transmission <- numeric(length(angles))
+  r <- numeric(length(angles))
+  t <- numeric(length(angles))
   
   # prevent numerical instablity by adding an extra entry and exit medium
   layers$index <-
@@ -58,7 +58,7 @@ angle_scan <- function(layers,
   counting_variable <- 0
   
   
-  for (angle in angle_range) {
+  for (angle in angles) {
     counting_variable <- counting_variable + 1
     
     M <- matrix(c(1, 0, 0, 1),
@@ -107,7 +107,7 @@ angle_scan <- function(layers,
   }
   return(
     data.frame(
-      angle = angle_range * 180 / pi,
+      angle = angles * 180 / pi,
       Reflection = Re(Reflection),
       Transmission = Re(Transmission),
       Absorption = 1 - Re(Transmission) - Re(Reflection)

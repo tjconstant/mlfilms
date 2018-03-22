@@ -4,7 +4,7 @@
 \alias{angle_scan}
 \title{Fixed wavelengh angle-scan of a thin film stack}
 \usage{
-angle_scan(layers, angle_range = seq(0, 90, length.out = 500),
+angle_scan(layers, angles = seq(0, 90, length.out = 500),
   wavelength = 6.33e-07, polarisation = "p",
   incident_medium.index = complex(real = 1, imaginary = 0),
   exit_medium.index = complex(real = 1, imaginary = 0))
@@ -12,7 +12,7 @@ angle_scan(layers, angle_range = seq(0, 90, length.out = 500),
 \arguments{
 \item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
 
-\item{angle_range}{The angle range in degrees. The default angle range is from 0 to 90.}
+\item{angles}{The angle range in degrees. The default angle range is from 0 to 90.}
 
 \item{wavelength}{The wavelength in meters. The default is for a HeNe laser (633 nm)}
 
@@ -26,12 +26,12 @@ angle_scan(layers, angle_range = seq(0, 90, length.out = 500),
 Returns a dataframe with the angle, Refelctivity, Transmission and Absorbtion
 }
 \description{
-Function to calculate the reflectivity as a function of angle for a given multilayer film.
+Function to calculate the reflectivity, transmission and absorption as a function of angle for a given multilayer film.
 }
 \details{
 The layers list should be constructed like so:
 
-layers<-list(index=..., thickness=..., repetitions=...)
+\code{layers <- list(index = ..., thickness = ..., repetitions = ...)}
 
 where index and thickness are vectors containing the stack parameters in order from the top interface to the bottom. Repetitions is an integer repeating the stack.
 }

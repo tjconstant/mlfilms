@@ -4,7 +4,7 @@
 \alias{wavelength_scan}
 \title{Spectra calculation at a fixed angle}
 \usage{
-wavelength_scan(layers, wavelength_range = seq(3.5e-07, 8.5e-07, , 500),
+wavelength_scan(layers, wavelengths = seq(3.5e-07, 8.5e-07, , 500),
   angle = 0, polarisation = "p", incident_medium.index = complex(real = 1,
   imaginary = 0), exit_medium.index = complex(real = 1, imaginary = 0),
   dispersive.function = "none", dispersive.layers = NA)
@@ -12,7 +12,7 @@ wavelength_scan(layers, wavelength_range = seq(3.5e-07, 8.5e-07, , 500),
 \arguments{
 \item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
 
-\item{wavelength_range}{The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.}
+\item{wavelengths}{The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.}
 
 \item{angle}{Fixed angle in degrees. Default is 0.}
 
@@ -30,12 +30,12 @@ wavelength_scan(layers, wavelength_range = seq(3.5e-07, 8.5e-07, , 500),
 Returns a dataframe with the wavelength, Refelctivity, Transmission and Absorbtion
 }
 \description{
-Function to calculate the reflectivity as a function of wavelength for a given multilayer film.
+Function to calculate the reflectivity, transmission and absorption as a function of wavelength for a given multilayer film.
 }
 \details{
 The layers list should be constructed like so:
 
-layers<-list(index=..., thickness=..., repetitions=...)
+\code{layers <- list(index = ..., thickness = ..., repetitions = ...)}
 
 where index and thickness are vectors containing the stack parameters in order from the top interface to the bottom. Repetitions is an integer repeating the stack.
 }

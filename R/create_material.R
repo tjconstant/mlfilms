@@ -1,4 +1,4 @@
-#' Create Dispersive Material Template Function
+#' Create dispersive material template file
 #'
 #'
 #' @examples

@@ -4,19 +4,19 @@
 \alias{dispersion_scan}
 \title{Calculate reflectivity as a function of both angle and wavelength}
 \usage{
-dispersion_scan(layers, angle_range = seq(0, 90, length.out = 100),
-  wavelength_range = seq(3.5e-07, 8.5e-07, length.out = 100),
-  polarisation = "p", incident_medium.index = complex(real = 1, imaginary =
-  0), exit_medium.index = complex(real = 0, imaginary = 1),
+dispersion_scan(layers, angles = seq(0, 90, length.out = 100),
+  wavelengths = seq(3.5e-07, 8.5e-07, length.out = 100), polarisation = "p",
+  incident_medium.index = complex(real = 1, imaginary = 0),
+  exit_medium.index = complex(real = 0, imaginary = 1),
   dispersive.function = "none", dispersive.layers = NA,
   show.progress = TRUE)
 }
 \arguments{
 \item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
 
-\item{angle_range}{The angle range in degrees. The default angle range is from 0 to 90.}
+\item{angles}{The angle range in degrees. The default angle range is from 0 to 90.}
 
-\item{wavelength_range}{The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.}
+\item{wavelengths}{The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.}
 
 \item{polarisation}{Linear polarisation of the light. Acceptable arguments are 'p' (Transverse Magnetic) or 's' (Transverse Electric).}
 
@@ -34,15 +34,17 @@ dispersion_scan(layers, angle_range = seq(0, 90, length.out = 100),
 Returns a dataframe object with the following parts:
 \item{wavlength}{The wavelength range in meters}
 \item{angle}{The angle range in radians}
-\item{Reflectivity}{The calculated reflectivity}
+\item{Reflection}{The calculated reflectivity}
+\item{Transmission}{The calculated transmission}
+\item{Absorption}{The calculated absorption}
 }
 \description{
-Calculate reflectivity as a function of both angle and wavelength
+Calculate reflectivity, transmission and absorption as a function of both angle and wavelength
 }
 \details{
 The layers list should be constructed like so:
 
-layers<-list(index=..., thickness=..., repetitions=...)
+\code{layers <- list(index = ..., thickness = ..., repetitions = ...)}
 
 where index and thickness are vectors containing the stack parameters in order from the top interface to the bottom. Repetitions is an integer repeating the stack.
 }
@@ -51,7 +53,7 @@ layers <- list(index = c(2.35+0i,1.38+0i),
 thickness = c(550e-9/(4*2.35),550e-9/(4*1.38)),
 repetitions = 6)
 
-R_highlowStack6 <- dispersion_scan(angle_range = seq(0,89,,100),
+R_highlowStack6 <- dispersion_scan(angles = seq(0,89,,100),
                                    incident_medium.index=1+0i,
                                    exit_medium.index = 1.52+0i,
                                    layers = layers,

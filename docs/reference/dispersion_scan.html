@@ -84,13 +84,13 @@
     </div>
 
     
-    <p>Calculate reflectivity as a function of both angle and wavelength</p>
+    <p>Calculate reflectivity, transmission and absorption as a function of both angle and wavelength</p>
     
 
-    <pre class="usage"><span class='fu'>dispersion_scan</span>(<span class='no'>layers</span>, <span class='kw'>angle_range</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>0</span>, <span class='fl'>90</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>100</span>),
-  <span class='kw'>wavelength_range</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>3.5e-07</span>, <span class='fl'>8.5e-07</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>100</span>),
-  <span class='kw'>polarisation</span> <span class='kw'>=</span> <span class='st'>"p"</span>, <span class='kw'>incident_medium.index</span> <span class='kw'>=</span> <span class='fu'>complex</span>(<span class='kw'>real</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>imaginary</span> <span class='kw'>=</span>
-  <span class='fl'>0</span>), <span class='kw'>exit_medium.index</span> <span class='kw'>=</span> <span class='fu'>complex</span>(<span class='kw'>real</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>imaginary</span> <span class='kw'>=</span> <span class='fl'>1</span>),
+    <pre class="usage"><span class='fu'>dispersion_scan</span>(<span class='no'>layers</span>, <span class='kw'>angles</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>0</span>, <span class='fl'>90</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>100</span>),
+  <span class='kw'>wavelengths</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>3.5e-07</span>, <span class='fl'>8.5e-07</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>100</span>), <span class='kw'>polarisation</span> <span class='kw'>=</span> <span class='st'>"p"</span>,
+  <span class='kw'>incident_medium.index</span> <span class='kw'>=</span> <span class='fu'>complex</span>(<span class='kw'>real</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>imaginary</span> <span class='kw'>=</span> <span class='fl'>0</span>),
+  <span class='kw'>exit_medium.index</span> <span class='kw'>=</span> <span class='fu'>complex</span>(<span class='kw'>real</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>imaginary</span> <span class='kw'>=</span> <span class='fl'>1</span>),
   <span class='kw'>dispersive.function</span> <span class='kw'>=</span> <span class='st'>"none"</span>, <span class='kw'>dispersive.layers</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
   <span class='kw'>show.progress</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
@@ -102,11 +102,11 @@
       <td><p>A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.</p></td>
     </tr>
     <tr>
-      <th>angle_range</th>
+      <th>angles</th>
       <td><p>The angle range in degrees. The default angle range is from 0 to 90.</p></td>
     </tr>
     <tr>
-      <th>wavelength_range</th>
+      <th>wavelengths</th>
       <td><p>The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.</p></td>
     </tr>
     <tr>
@@ -140,13 +140,15 @@
     <p>Returns a dataframe object with the following parts:</p>
 <dt>wavlength</dt><dd><p>The wavelength range in meters</p></dd>
 <dt>angle</dt><dd><p>The angle range in radians</p></dd>
-<dt>Reflectivity</dt><dd><p>The calculated reflectivity</p></dd>
+<dt>Reflection</dt><dd><p>The calculated reflectivity</p></dd>
+<dt>Transmission</dt><dd><p>The calculated transmission</p></dd>
+<dt>Absorption</dt><dd><p>The calculated absorption</p></dd>
 
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The layers list should be constructed like so:</p>
-<p>layers&lt;-list(index=..., thickness=..., repetitions=...)</p>
+    <p>The layers list should be constructed like so:
+    <code>layers &lt;- list(index = ..., thickness = ..., repetitions = ...)</code></p>
 <p>where index and thickness are vectors containing the stack parameters in order from the top interface to the bottom. Repetitions is an integer repeating the stack.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
@@ -159,7 +161,7 @@
 <span class='kw'>thickness</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>550e-9</span>/(<span class='fl'>4</span>*<span class='fl'>2.35</span>),<span class='fl'>550e-9</span>/(<span class='fl'>4</span>*<span class='fl'>1.38</span>)),
 <span class='kw'>repetitions</span> <span class='kw'>=</span> <span class='fl'>6</span>)
 
-<span class='no'>R_highlowStack6</span> <span class='kw'>&lt;-</span> <span class='fu'>dispersion_scan</span>(<span class='kw'>angle_range</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>0</span>,<span class='fl'>89</span>,,<span class='fl'>100</span>),
+<span class='no'>R_highlowStack6</span> <span class='kw'>&lt;-</span> <span class='fu'>dispersion_scan</span>(<span class='kw'>angles</span> <span class='kw'>=</span> <span class='fu'>seq</span>(<span class='fl'>0</span>,<span class='fl'>89</span>,,<span class='fl'>100</span>),
                                    <span class='kw'>incident_medium.index</span><span class='kw'>=</span><span class='fl'>1</span>+<span class='fl'>0i</span>,
                                    <span class='kw'>exit_medium.index</span> <span class='kw'>=</span> <span class='fl'>1.52</span>+<span class='fl'>0i</span>,
                                    <span class='kw'>layers</span> <span class='kw'>=</span> <span class='no'>layers</span>,
@@ -171,7 +173,7 @@
       <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>*<span class='fl'>1e9</span>,
       <span class='kw'>z</span> <span class='kw'>=</span> <span class='fu'>matrix</span>(<span class='no'>R_highlowStack6</span>$<span class='no'>Reflection</span>,<span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>100</span>),
       <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='fu'>expression</span>(<span class='no'>angle</span>~(<span class='no'>degree</span>)),
-      <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"wavelength (nm)"</span>)</div><div class='img'><img src='dispersion_scan-2.png' alt='' width='700' height='432.632880098887' /></div></pre>
+      <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>"wavelength (nm)"</span>)</div><div class='img'><img src='dispersion_scan-1.png' alt='' width='700' height='432.632880098887' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -1,7 +1,7 @@
 Package: mlfilms
 Type: Package
 Title: Calculates the optical response of multilayer thin films
-Version: 0.2.5
+Version: 0.3.0
 Date: 2015-02-24
 Authors@R: person("Tom", "Constant", role = c("aut", "cre"), email = "t.j.constant@gmail.com")
 Maintainer: Tom Constant <t.j.constant@gmail.com>
