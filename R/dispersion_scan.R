@@ -127,7 +127,7 @@ dispersion_scan <- function(layers,
       r <- rFromTMatrix(M = M,
                         gamma0 = gamma0,
                         gamma2 = gamma2)
-      Reflection[counting_variable] <- r * Conj(r)
+      Reflection[counting_variable] <- ReflectionCalc(r)
       
       t <- tFromTMatrix(M = M,
                         gamma0 = gamma0,
