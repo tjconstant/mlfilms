@@ -1,5 +1,5 @@
 ---
-title: "Fitting Experimental Data using `mlfilms`"
+title: "Fitting Experimental Data"
 author: "Tom Constant"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
