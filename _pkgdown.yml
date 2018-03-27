@@ -1,3 +1,6 @@
+development:
+  mode: unreleased  
+
 reference:
 - title: Optical Response Functions
   desc:  Calculates the optical response of a given thin-film system.
