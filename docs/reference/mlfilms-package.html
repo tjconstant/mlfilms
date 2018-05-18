@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculation of the optical response of multilayer thin films � mlfilms-package • mlfilms</title>
+<title>Calculation of the optical response of multilayer thin films — mlfilms-package • mlfilms</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,13 +18,24 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Calculation of the optical response of multilayer thin films — mlfilms-package" />
+
+<meta property="og:description" content="Calculates the optical response of multilayer thin films using a transfer matrix method." />
+
+<meta property="og:image" content="/logo.png" />
+<meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +58,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">mlfilms</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">mlfilms</a>
+        <span class="label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased package">0.3.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -85,6 +100,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -92,35 +108,30 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Calculation of the optical response of multilayer thin films</h1>
+    
+    <div class="hidden name"><code>mlfilms-package.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Calculates the optical response of multilayer thin films using a transfer matrix method.</p>
     
+    </div>
 
         
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <table><tr><td>
-Package: </td>
-<td> mlfilms</td>
-</tr><tr><td>
-Type: </td>
-<td> Package</td>
-</tr><tr><td>
-Version: </td>
-<td> 0.2.4</td>
-</tr><tr><td>
-Date: </td>
-<td> 2013-04-04</td>
-</tr><tr><td>
-License: </td>
-<td> GPL</td>
-</tr></table>
+    <table class='table'>
+<tr><td>Package:</td><td>mlfilms</td></tr>
+<tr><td>Type:</td><td>Package</td></tr>
+<tr><td>Version:</td><td>0.2.4</td></tr>
+<tr><td>Date:</td><td>2013-04-04</td></tr>
+<tr><td>License:</td><td>GPL</td></tr>
+</table>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
@@ -159,5 +170,8 @@ Maintainer: Tom Constant &lt;t.j.constant@gmail.com&gt;
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+
