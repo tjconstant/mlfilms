@@ -3,6 +3,8 @@ template:
     docsearch:
       api_key: 828c86f58b1828660651c459e6720bde
       index_name: mlfilms
+      
+url: http://mlfilms.tjconstant.com
 
 development:
   mode: unreleased  
