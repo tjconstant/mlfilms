@@ -105,11 +105,11 @@
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1858"
-     inkscape:window-height="1177"
-     inkscape:window-x="1974"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="732"
+     inkscape:window-height="405"
+     inkscape:window-x="1079"
+     inkscape:window-y="125"
+     inkscape:window-maximized="0" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -118,7 +118,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -156,18 +156,18 @@
        y="67.148209" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:3.60592031px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ceb9e6;fill-opacity:1;stroke:none;stroke-width:0.090148;"
-       x="138.54395"
+       style="font-style:normal;font-weight:normal;font-size:3.60592031px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ceb9e6;fill-opacity:1;stroke:none;stroke-width:0.090148"
+       x="139.0731"
        y="61.678116"
        id="text4495"><tspan
          sodipodi:role="line"
          id="tspan4493"
-         x="138.54395"
+         x="139.0731"
          y="61.678116"
-         style="fill:#ceb9e6;fill-opacity:1;stroke-width:0.090148;">n = 1.33</tspan></text>
+         style="fill:#ceb9e6;fill-opacity:1;stroke-width:0.090148">n = 1.33</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:3.60592031px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#b278c1;fill-opacity:1;stroke:none;stroke-width:0.090148;"
+       style="font-style:normal;font-weight:normal;font-size:3.60592031px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#b278c1;fill-opacity:1;stroke:none;stroke-width:0.090148"
        x="139.0731"
        y="66.138168"
        id="text4499"><tspan
@@ -175,10 +175,10 @@
          id="tspan4497"
          x="139.0731"
          y="66.138168"
-         style="stroke-width:0.090148;fill:#b278c1;fill-opacity:1;">n = 1.75</tspan></text>
+         style="fill:#b278c1;fill-opacity:1;stroke-width:0.090148">n = 1.75</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:3.60592031px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4df2d8;fill-opacity:1;stroke:none;stroke-width:0.090148;"
+       style="font-style:normal;font-weight:normal;font-size:3.60592031px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4df2d8;fill-opacity:1;stroke:none;stroke-width:0.090148"
        x="139.0731"
        y="69.659508"
        id="text4503"><tspan
@@ -186,10 +186,10 @@
          id="tspan4501"
          x="139.0731"
          y="69.659508"
-         style="stroke-width:0.090148;fill:#4df2d8;fill-opacity:1;">n = 1.2</tspan></text>
+         style="fill:#4df2d8;fill-opacity:1;stroke-width:0.090148">n = 1.2</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:3.60592031px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4d86b0;fill-opacity:1;stroke:none;stroke-width:0.090148;"
+       style="font-style:normal;font-weight:normal;font-size:3.60592031px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4d86b0;fill-opacity:1;stroke:none;stroke-width:0.090148"
        x="139.0731"
        y="72.741699"
        id="text4507"><tspan
@@ -197,7 +197,7 @@
          id="tspan4505"
          x="139.0731"
          y="72.741699"
-         style="fill:#4d86b0;fill-opacity:1;stroke-width:0.090148;">n = 1.3 + 1i</tspan></text>
+         style="fill:#4d86b0;fill-opacity:1;stroke-width:0.090148">n = 1.3 + 1i</tspan></text>
     <text
        id="text4511"
        y="61.365593"
