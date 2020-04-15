@@ -15,7 +15,7 @@ angle_scan(
 )
 }
 \arguments{
-\item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
+\item{layers}{A list object containing the stack parameters. Must include index, thickness and (optionally) repetitions. See details and examples for more information.}
 
 \item{angles}{The angle range in degrees. The default angle range is from 0 to 90.}
 
@@ -27,7 +27,7 @@ angle_scan(
 
 \item{exit_medium.index}{The global exit medium. Default is n=1+0i (air)}
 
-\item{show.progress}{Determine is a progress bar is to be printed to console}
+\item{show.progress}{Determine if a progress bar is to be printed to console}
 }
 \value{
 Returns a dataframe with the angle, Refelctivity, Transmission and Absorbtion

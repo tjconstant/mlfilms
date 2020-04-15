@@ -15,7 +15,7 @@ wavelength_scan(
 )
 }
 \arguments{
-\item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
+\item{layers}{A list object containing the stack parameters. Must include index, thickness and (optionally) repetitions. See details and examples for more information.}
 
 \item{wavelengths}{The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.}
 
@@ -27,7 +27,7 @@ wavelength_scan(
 
 \item{exit_medium.index}{The global exit medium. Default is n=1+0i (air)}
 
-\item{show.progress}{Determine is a progress bar is to be printed to console}
+\item{show.progress}{Determine if a progress bar is to be printed to console}
 }
 \value{
 Returns a dataframe with the wavelength, Refelctivity, Transmission and Absorbtion
