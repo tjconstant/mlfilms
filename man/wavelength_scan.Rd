@@ -4,13 +4,18 @@
 \alias{wavelength_scan}
 \title{Spectra calculation at a fixed angle}
 \usage{
-wavelength_scan(layers, wavelengths = seq(3.5e-07, 8.5e-07, length.out = 500),
-  angle = 0, polarisation = "p", incident_medium.index = complex(real = 1,
-  imaginary = 0), exit_medium.index = complex(real = 1, imaginary = 0),
-  show.progress = F)
+wavelength_scan(
+  layers,
+  wavelengths = seq(3.5e-07, 8.5e-07, length.out = 500),
+  angle = 0,
+  polarisation = "p",
+  incident_medium.index = complex(real = 1, imaginary = 0),
+  exit_medium.index = complex(real = 1, imaginary = 0),
+  show.progress = F
+)
 }
 \arguments{
-\item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
+\item{layers}{A list object containing the stack parameters. Must include index, thickness and (optionally) repetitions. See details and examples for more information.}
 
 \item{wavelengths}{The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.}
 
@@ -22,7 +27,7 @@ wavelength_scan(layers, wavelengths = seq(3.5e-07, 8.5e-07, length.out = 500),
 
 \item{exit_medium.index}{The global exit medium. Default is n=1+0i (air)}
 
-\item{show.progress}{Determine is a progress bar is to be printed to console}
+\item{show.progress}{Determine if a progress bar is to be printed to console}
 }
 \value{
 Returns a dataframe with the wavelength, Refelctivity, Transmission and Absorbtion

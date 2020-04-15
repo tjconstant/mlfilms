@@ -4,13 +4,18 @@
 \alias{angle_scan}
 \title{Fixed wavelengh angle-scan of a thin film stack}
 \usage{
-angle_scan(layers, angles = seq(0, 90, length.out = 500),
-  wavelength = 6.33e-07, polarisation = "p",
+angle_scan(
+  layers,
+  angles = seq(0, 90, length.out = 500),
+  wavelength = 6.33e-07,
+  polarisation = "p",
   incident_medium.index = complex(real = 1, imaginary = 0),
-  exit_medium.index = complex(real = 1, imaginary = 0), show.progress = F)
+  exit_medium.index = complex(real = 1, imaginary = 0),
+  show.progress = F
+)
 }
 \arguments{
-\item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
+\item{layers}{A list object containing the stack parameters. Must include index, thickness and (optionally) repetitions. See details and examples for more information.}
 
 \item{angles}{The angle range in degrees. The default angle range is from 0 to 90.}
 
@@ -22,7 +27,7 @@ angle_scan(layers, angles = seq(0, 90, length.out = 500),
 
 \item{exit_medium.index}{The global exit medium. Default is n=1+0i (air)}
 
-\item{show.progress}{Determine is a progress bar is to be printed to console}
+\item{show.progress}{Determine if a progress bar is to be printed to console}
 }
 \value{
 Returns a dataframe with the angle, Refelctivity, Transmission and Absorbtion

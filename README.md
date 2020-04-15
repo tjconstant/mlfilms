@@ -1,15 +1,19 @@
 
-mlfilms <img src="man/figures/logo.png" align="right" />
-========================================================
+# mlfilms <img src="man/figures/logo.png" align="right" />
 
-[![Build Status](https://travis-ci.org/tjconstant/mlfilms.svg?branch=master)](https://travis-ci.org/tjconstant/mlfilms) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tjconstant/mlfilms?branch=master&svg=true)](https://ci.appveyor.com/project/tjconstant/mlfilms) [![codecov](https://codecov.io/gh/tjconstant/mlfilms/branch/master/graph/badge.svg)](https://codecov.io/gh/tjconstant/mlfilms)
+![R-CMD-check](https://github.com/tjconstant/mlfilms/workflows/R-CMD-check/badge.svg)
+[![codecov](https://codecov.io/gh/tjconstant/mlfilms/branch/master/graph/badge.svg)](https://codecov.io/gh/tjconstant/mlfilms)
 
-Calculation of reflection from multilayer films using the transfer matrix method.
+Calculation of reflection from multilayer films using the transfer
+matrix method.
 
-This package uses the transfer matrix method outlined in [Pedrotti, Pedrotti and Pedrotti](http://www.amazon.com/Introduction-Optics-3rd-Frank-Pedrotti/dp/0131499335) to calculate the reflection and transmission of plane polarised light from an arbitary stack of thin films.
+This package uses the transfer matrix method outlined in [Pedrotti,
+Pedrotti and
+Pedrotti](http://www.amazon.com/Introduction-Optics-3rd-Frank-Pedrotti/dp/0131499335)
+to calculate the reflection and transmission of plane polarised light
+from an arbitary stack of thin films.
 
-To Install
-----------
+## To Install
 
 From within an R session, use the devtools package like so:
 
@@ -17,12 +21,16 @@ From within an R session, use the devtools package like so:
 devtools::install_github('tjconstant/mlfilms')
 ```
 
-The Layers
-----------
+## The Layers
 
-All layers are defined as a list of parameters, with the layers listed sequentially from top (incident side) to bottom (exit side). The list must contain the refractive indexes as `index` and the thicknesses of the layers as `thickness`. You may also optionally include a number of repetitions of the stack under `repetitions`.
+All layers are defined as a list of parameters, with the layers listed
+sequentially from top (incident side) to bottom (exit side). The list
+must contain the refractive indexes as `index` and the thicknesses of
+the layers as `thickness`. You may also optionally include a number of
+repetitions of the stack under `repetitions`.
 
-For Example, for the following thin film stack shown in the diagram, with the listed thicknesses (t) and refractive indexes (n),
+For Example, for the following thin film stack shown in the diagram,
+with the listed thicknesses (t) and refractive indexes (n),
 
 ![example\_figure](man/figures/example.png)
 
@@ -34,14 +42,20 @@ mystack <- list(index = c(1.33, 1.75, 1.2, 1.3 + 1i),
                 repetitions = 1)
 ```
 
-Notice the incident and exit mediums are not part of the stack, and so their refracive indexes are not listed in the `mystack` list. They will be specificed when the optical response function is called (see below).
+Notice the incident and exit mediums are not part of the stack, and so
+their refracive indexes are not listed in the `mystack` list. They will
+be specificed when the optical response function is called (see below).
 
-Example
--------
+## Example
 
-As a quick example, here is how you'd calculate and plot the reflection from a thin silver film through a prism. This is a standard experiment in our lab which results in a reflectivity minima associated with a surface plasmon excitation.
+As a quick example, here is how you’d calculate and plot the reflection
+from a thin silver film through a prism. This is a standard experiment
+in our lab which results in a reflectivity minima associated with a
+surface plasmon excitation.
 
-We simply construct a stack with an appropriate refractive index and thickness (45 nm), and calculate the reflection (as a funciton of polar angle, setting the incident medium to glass.
+We simply construct a stack with an appropriate refractive index and
+thickness (45 nm), and calculate the reflection (as a funciton of polar
+angle, setting the incident medium to glass.
 
 ``` r
 library(mlfilms)
@@ -56,7 +70,10 @@ plasmon <- angle_scan(mystack2,
     #> Warning in check_repetitions(layers): Number of repetitions not specified,
     #> defaulting to 1.
 
-Plotting the result using `ggplot` shows a critical edge related to the onset of total internal reflection in the prism, and the reflectivity minima resulting from a surface plasmon excitation on the silver/air interface.
+Plotting the result using `ggplot` shows a critical edge related to the
+onset of total internal reflection in the prism, and the reflectivity
+minima resulting from a surface plasmon excitation on the silver/air
+interface.
 
 ``` r
 library(tidyverse)
@@ -67,4 +84,4 @@ plasmon %>%
   xlab(expression(angle~(degree)))
 ```
 
-![](man/figures/plasmon-1.png)
+![](man/figures/plasmon-1.png)<!-- -->

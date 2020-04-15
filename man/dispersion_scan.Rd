@@ -4,14 +4,18 @@
 \alias{dispersion_scan}
 \title{Calculate optical response as a function of both angle and wavelength}
 \usage{
-dispersion_scan(layers, angles = seq(0, 90, length.out = 100),
-  wavelengths = seq(3.5e-07, 8.5e-07, length.out = 100), polarisation = "p",
+dispersion_scan(
+  layers,
+  angles = seq(0, 90, length.out = 100),
+  wavelengths = seq(3.5e-07, 8.5e-07, length.out = 100),
+  polarisation = "p",
   incident_medium.index = complex(real = 1, imaginary = 0),
   exit_medium.index = complex(real = 1, imaginary = 0),
-  show.progress = TRUE)
+  show.progress = TRUE
+)
 }
 \arguments{
-\item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
+\item{layers}{A list object containing the stack parameters. Must include index, thickness and (optionally) repetitions. See details and examples for more information.}
 
 \item{angles}{The angle range in degrees. The default angle range is from 0 to 90.}
 
@@ -23,10 +27,10 @@ dispersion_scan(layers, angles = seq(0, 90, length.out = 100),
 
 \item{exit_medium.index}{The global exit medium. Default is n=1+0i (air)}
 
-\item{show.progress}{Determine is a progress bar is to be printed to console}
+\item{show.progress}{Determine if a progress bar is to be printed to console}
 }
 \value{
-Returns a dataframe object with the following parts:
+Returns a \code{data.frame} object with the following parts:
 \item{wavlength}{The wavelength range in meters}
 \item{angle}{The angle range in radians}
 \item{Reflection}{The calculated reflectivity}
