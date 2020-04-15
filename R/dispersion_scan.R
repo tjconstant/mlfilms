@@ -2,17 +2,17 @@
 #' 
 #' @description Calculate reflectivity, transmission and absorption as a function of both angle and wavelength
 #'
-#' @param layers A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.
+#' @param layers A list object containing the stack parameters. Must include index, thickness and (optionally) repetitions. See details and examples for more information.
 #' @param angles The angle range in degrees. The default angle range is from 0 to 90.
 #' @param wavelengths The wavelength range of the calculated spectra, in meters. The default covers the visible range from 350 nm to 850 nm.
 #' @param polarisation Linear polarisation of the light. Acceptable arguments are 'p' (Transverse Magnetic) or 's' (Transverse Electric).
 #' @param incident_medium.index The global incident medium. Default is n=1+0i (air)
 #' @param exit_medium.index The global exit medium. Default is n=1+0i (air)
-#' @param show.progress Determine is a progress bar is to be printed to console
+#' @param show.progress Determine if a progress bar is to be printed to console
 #'
 #' @inherit angle_scan references details
 #' @return
-#' Returns a dataframe object with the following parts:
+#' Returns a \code{data.frame} object with the following parts:
 #' \item{wavlength}{The wavelength range in meters}
 #' \item{angle}{The angle range in radians}
 #' \item{Reflection}{The calculated reflectivity}
