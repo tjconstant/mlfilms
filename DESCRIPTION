@@ -8,7 +8,7 @@ Maintainer: Tom Constant <t.j.constant@gmail.com>
 Description: Calculates the optical response of multilayer thin films using a transfer matrix method.
 License: GPL
 Imports: Biodem
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.0
 Suggests: testthat,
     covr,
     knitr,

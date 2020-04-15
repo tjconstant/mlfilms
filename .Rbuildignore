@@ -1,8 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\README.Rmd$
-^\.travis\.yml$
-^appveyor\.yml$
 ^docs$
 ^codecov\.yml$
 ^_pkgdown\.yml$
+^.github\*

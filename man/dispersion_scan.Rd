@@ -4,11 +4,15 @@
 \alias{dispersion_scan}
 \title{Calculate optical response as a function of both angle and wavelength}
 \usage{
-dispersion_scan(layers, angles = seq(0, 90, length.out = 100),
-  wavelengths = seq(3.5e-07, 8.5e-07, length.out = 100), polarisation = "p",
+dispersion_scan(
+  layers,
+  angles = seq(0, 90, length.out = 100),
+  wavelengths = seq(3.5e-07, 8.5e-07, length.out = 100),
+  polarisation = "p",
   incident_medium.index = complex(real = 1, imaginary = 0),
   exit_medium.index = complex(real = 1, imaginary = 0),
-  show.progress = TRUE)
+  show.progress = TRUE
+)
 }
 \arguments{
 \item{layers}{A list object containing the stack parameters. Must include index, thickness and repetitions. See details and examples for more information.}
